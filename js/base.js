@@ -1,5 +1,4 @@
 var pjaxBinded = false;
-var disqus_shortname = 'garyblog';
 var ujian_config = {showType:0};
 var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
 jQuery(document).ready(function($){
@@ -14,14 +13,25 @@ jQuery(document).ready(function($){
 
 function afterLoaded(){
 	bindSlimBox();
-	$.getScript('http://garyblog.disqus.com/embed.js',function(data){eval(data);});
-	$.getScript('http://garyblog.disqus.com/count.js',function(data){eval(data);});
-	$.getScript('http://v1.ujian.cc/code/ujian.js?uid=97713',function(data){eval(data);});
+    if(disqus_shortname){
+        window.DISQUSWIDGETS = undefined;
+        $.getScript('http://' + disqus_shortname + '.disqus.com/count.js',function(data){
+                eval(data);
+            });
+        if($('#disqus_thread').length){
+            $.getScript('http://' + disqus_shortname + '.disqus.com/embed.js',function(data){
+                eval(data);
+            });
+        }
+    }
+    if(ujian_uid){
+        $.getScript('http://v1.ujian.cc/code/ujian.js?uid=' + ujian_uid,function(data){eval(data);});
+    }
 }
 
 function bindSlimBox(){
 	if($('.postContent a[rel!=link]:has(img)').length > 0){
-		$.getScript("{{ ASSET_PATH }}/js/slimbox2.js");
+		$.getScript("/js/slimbox2.js");
 	};
 }
 
