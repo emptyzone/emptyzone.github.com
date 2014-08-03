@@ -2,12 +2,14 @@ var pjaxBinded = false;
 var ujian_config = {showType:0};
 var disqus_count_command;
 var disqus_embed_command;
+var ujian_command;
 var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
 jQuery(document).ready(function($){
 	if ($.browser.msie) {
 		location.href = 'http://chrome.google.com';
 	}
 	afterLoaded();
+    $.getScript("/js/slimbox2.js");
 	if( history && history.pushState){
 		bindPjax();
 	}
@@ -37,14 +39,21 @@ function afterLoaded(){
             }
         }
     }
-    if(ujian_uid){
-        $.getScript('http://v1.ujian.cc/code/ujian.js?uid=' + ujian_uid,function(data){eval(data);});
+    if(ujian_uid && $('.ujian-hook').length){
+        if(ujian_command){
+            eval(ujian_command);
+        }else{
+            $.getScript('http://v1.ujian.cc/code/ujian.js?uid=' + ujian_uid,function(data){
+                        ujian_command = data;
+                        eval(ujian_command);
+                        });
+        }
     }
 }
 
 function bindSlimBox(){
 	if($('.postContent a[rel!=link]:has(img)').length > 0){
-		$.getScript("/js/slimbox2.js");
+        $(".postContent a[rel!=link]:has(img)").slimbox();
 	};
 }
 
