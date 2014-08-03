@@ -1,0 +1,10 @@
+
+<div class="post">
+	<div class="postContent">
+		<h2><%- __('archive') %></h2>
+	</div>
+</div>
+
+<%- partial('_partial/post_loop', {loop_posts: page.posts}) %>
+
+<%- partial('_partial/paginator') %>

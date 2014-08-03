@@ -1,0 +1,17 @@
+<% var categories_list = site.categories %>
+<ul>
+    <%
+        var arr = [];
+        categories_list.forEach(function(category){
+                                if(category.name == page.category || (page.categories && page.categories.length > 0 && category.name == page.categories.first().name)){
+                                arr.push('<li class="menu-item current-menu-item"><a href="' + url_for(category.path) + '" rel="category" >' + category.name + '</a></li>');
+                                }else{
+                                arr.push('<li class="menu-item"><a href="' + url_for(category.path) + '" rel="category" >' + category.name + '</a></li>');
+                                }
+                                });
+    %>
+    <%- arr.join('')%>
+    <% if(config.feed){ %>
+    <li class="menu-item"><a href="<%- url_for(config.feed.path)%>" target="_blank">Feed</a></li>
+    <% } %>
+</ul>

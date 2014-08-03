@@ -1,0 +1,17 @@
+
+<div class="post">
+	<p class="category"><%= page.categories.first().name %></p>
+	<h2><a href="<%- url_for(page.path) %>" title="<%= page.title %>"><%= page.title %></a></h2>
+	<div class="date"><%- page.date.fromNow() %></div>
+	<div class="postContent"><%- page.content %></div>
+	<div class="ujian-hook"></div>
+	<% if (page.categories.length > 0 || page.tags.length > 0){ %>
+		<div class="postInfo">
+			<div class="postTags">
+				<%- partial('_partial/post/category', {category: page.categories.first()}) %>  <%- partial('_partial/post/tag', {tags: page.tags}) %>
+			</div>
+			<div class="clear"></div>
+		</div>
+    <% } %>
+	<%-  partial('_partial/commens') %>
+</div>

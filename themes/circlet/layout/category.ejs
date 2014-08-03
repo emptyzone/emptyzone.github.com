@@ -1,0 +1,11 @@
+
+<div class="post">
+	<p class="category"><%= page.category %></p>
+	<div class="postContent">
+		<h2><%- __('category', page.category) %></h2>
+	</div>
+</div>
+
+<%- partial('_partial/post_loop', {loop_posts: page.posts}) %>
+
+<%- partial('_partial/paginator') %>

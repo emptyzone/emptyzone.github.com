@@ -1,0 +1,22 @@
+<% loop_posts.forEach(function(post){ %>
+<div class="post">
+	<h2><a href="<%- url_for(post.path) %>" title="<%= post.title %>"><%= post.title %></a></h2>
+	<div class="date"><%- post.date.fromNow() %></div>
+	<div class="postContent">
+        <% if( post.excerpt ) { %>
+            <%- post.excerpt %>
+        <% }else{ %>
+            <%- post.content %>
+        <% } %>
+    </div>
+	<div class="postInfo">
+		<% if (post.categories.length > 0 || post.tags.length > 0){ %>
+            <div class="postTags">
+                <%- partial('post/category', {category: post.categories.first()}) %>  <%- partial('post/tag', {tags: post.tags}) %>
+            </div>
+        <% } %>
+        <div class="postNotes"><a href="<%- url_for(post.path) %>#disqus_thread">Loading...</a></div>
+        <div class="clear"></div>
+	</div>
+</div>
+<% }); %>

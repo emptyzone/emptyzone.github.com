@@ -1,0 +1,11 @@
+<% if(page.prev || page.next){ %>
+<div id="pagenavi">
+	<% if (page.prev){ %>
+        <a class="page-numbers" href="<%- url_for(page.prev_link)%>" ><</a>
+    <% } %>
+		<a class="page-numbers current"><%- __('page', page.current) %></a>
+    <% if (page.next) { %>
+		<a class="page-numbers" href="<%- url_for(page.next_link)%>" >></a>
+    <% } %>
+</div>
+<% } %>
