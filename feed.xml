@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title><![CDATA[Gary Blog]]></title>
+    <link>http://emptyzone.github.io/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <description><![CDATA[]]></description>
+    <pubDate>Sun, 03 Aug 2014 02:08:17 GMT</pubDate>
+    <generator>http://zespia.tw/hexo/</generator>
+    
+    <item>
+      <title><![CDATA[超越Instagram之路]]></title>
+      <link>http://emptyzone.github.io/Tech/2013/11/24/way-beyond-instagram-preview-and-outline/</link>
+      <guid>http://emptyzone.github.io/Tech/2013/11/24/way-beyond-instagram-preview-and-outline/</guid>
+      <pubDate>Sat, 23 Nov 2013 16:00:00 GMT</pubDate>
+      <description><![CDATA[<p>在过去一年多的时间里，我和团队受Instagram的激励一起做了一个图片分享社区。所以同时我也对iOS和Android上的相机开发做了很多研究。我们认为我们产品里的相机在很多方面达到了与Instagram类似的标准，甚至有些方面要更优于它。</p>
+]]></description>
+      <content:encoded><![CDATA[<p>在过去一年多的时间里，我和团队受Instagram的激励一起做了一个图片分享社区。所以同时我也对iOS和Android上的相机开发做了很多研究。我们认为我们产品里的相机在很多方面达到了与Instagram类似的标准，甚至有些方面要更优于它。</p>
+<a id="more"></a>
+
+<p>在上周写了一篇关于Android相机启动优化的文章后。我重新考虑了技术文章应有的写法。对于一个较复杂的工程来说，只提取出一小部分主题来写，读者看来就像管中窥豹，恐怕很难获得提升。所以我决定把自己过去一年多里关于iOS和Android平台相机应用的努力，通过一系列的文章，总结记录下来。我会尽量做到循序渐进，也希望能给看到的人带来帮助。</p>
+<p><img src="/images/way-beyond-instagram-preview-and-outline/1.jpg" alt=""></p>
+<p><img src="/images/way-beyond-instagram-preview-and-outline/2.jpg" alt=""></p>
+<p>上面是在我计划的这一系列文章之后所能实现的工程预览。包括一个拍照界面和一个分享界面。最终结果可能会有差异，但不会差很多。</p>
+<p>这些文章中将会以Android平台相机的开发为主，iOS平台的代码逻辑类似，这样做主要是由于iOS平台有GPUImage这样优秀的开源框架，为我们省掉了很多工作，当然同时也让我们无法更清晰的看到一些细节上我们本该注意到的逻辑。</p>
+<p>随后的文章中将会涉及到的内容包括以下这几点：</p>
+<p>1.开启相机并能实时预览</p>
+<p>2.拍摄照片与保存图片</p>
+<p>3.Android平台不同相机的兼容和配置</p>
+<p>4.相机的对焦功能</p>
+<p>5.相机的闪光灯功能</p>
+<p>6.前后摄像头的切换</p>
+<p>7.从相机界面到分享界面的平滑过渡</p>
+<p>8.利用OpenGl ES实现图片滤镜的原理</p>
+<p>9.利用OpenGl ES实现图片滤镜和实时滤镜</p>
+<p>10.利用OpenGl ES实现可调节的移轴效果</p>
+<p>其中关于图片滤镜的部分可能会用几篇文章来分别介绍。</p>
+<p>另外Instagram的最新版中已经去除了对实时滤镜的支持。他们自己把这描述为有利于用户体验的改进。我倒是觉得这是他们利用iOS SDK中的UIImagePickerController重写相机所带来的副作用，这确实是降低应用内存占用的好办法，但我不认为去掉滤镜的实时预览功能是一种改进，毕竟所见即所得式的拍照能够帮助用户生产更优秀的照片。</p>
+]]></content:encoded>
+      <comments>http://emptyzone.github.io/Tech/2013/11/24/way-beyond-instagram-preview-and-outline/#disqus_comments</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[田亮肯定不是好爸爸]]></title>
+      <link>http://emptyzone.github.io/Life/2013/11/18/tianliang-bad-dad/</link>
+      <guid>http://emptyzone.github.io/Life/2013/11/18/tianliang-bad-dad/</guid>
+      <pubDate>Sun, 17 Nov 2013 16:00:00 GMT</pubDate>
+      
+      <content:encoded><![CDATA[<p>周五陪女朋友又看了一集《爸爸去哪》。看到田亮鬼鬼祟祟的问别人：“哎，你平时打孩子吗？其实中国式的教育还是有必要的。”我就想起第一集里刚开始这家伙就表达了对于在镜头前不能打孩子的深深遗憾。没想到他之后还在一直叨逼这事。</p>
+<p>人在做了亏心事的时候就总会找各种理由把它合理化，其实就是心虚。他也知道自己做得不对，但如果承认了，不就证明他是个坏爸爸了吗？所以他不能承认。但不说他又憋不住。于是他就一直说，想把黑的说成白的。不知道别的爸爸听他一直叨逼叨的会有什么想法。我是觉得搞体育的人智商真是让人捉急。</p>
+]]></content:encoded>
+      <comments>http://emptyzone.github.io/Life/2013/11/18/tianliang-bad-dad/#disqus_comments</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[Android相机启动加速]]></title>
+      <link>http://emptyzone.github.io/Tech/2013/11/17/android-launch-camera-speed-up/</link>
+      <guid>http://emptyzone.github.io/Tech/2013/11/17/android-launch-camera-speed-up/</guid>
+      <pubDate>Sat, 16 Nov 2013 16:00:00 GMT</pubDate>
+      <description><![CDATA[<p>在Android上实现一个简单能用的相机其实挺容易。谷歌随便搜一搜就有很多能用的Sample。当然就像谷歌能搜到的其他代码一样，这些Sample虽然能用但离好用还很远。</p>
+<p>这篇文章就只说说从用户点击启动按钮到用户能看到实时预览的这一小段时间内，我们所做的优化。</p>
+]]></description>
+      <content:encoded><![CDATA[<p>在Android上实现一个简单能用的相机其实挺容易。谷歌随便搜一搜就有很多能用的Sample。当然就像谷歌能搜到的其他代码一样，这些Sample虽然能用但离好用还很远。</p>
+<p>这篇文章就只说说从用户点击启动按钮到用户能看到实时预览的这一小段时间内，我们所做的优化。</p>
+<a id="more"></a>
+
+<p>Android手机上良莠不齐的硬件，导致相机启动时间有长有短，很难预期。用户在使用app过程中，过长的等待会产生焦虑。我们要做的就是让用户尽量感知不到相机启动的耗时。</p>
+<p>按照网上能搜到的一般相机Sample的说法，从启动相机到实时预览，我们需要做三件事：1.构建一个GlSurfaceView并获取它的SurfaceHolder；2.获取一个Camera device，启动它；3.将Camera device的预览设置为我们准备好的SurfaceHolder。</p>
+<p>我们把GlSurfaceView写到xml里如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">GlSurfaceView</span></span></div><div class="line">	android:id="@+id/<span class="attribute">camera_preview</span>"</div><div class="line">	<span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></div><div class="line">	<span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span> /&gt;</div></pre></td></tr></table></figure>
+
+<p>我们可以在CameraActivity的onCreate里获取到这个GlSurfaceView。可是并不是GlSurfaceView创建好了SurfaceHolder就也准备好了。我们还需要给它设置一个HolderListener来等待它生成出来的SurfaceHolder。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">SurfaceObserver</span> <span class="keyword">implements</span></span></div><div class="line">		<span class="title">SupportCamSurfaceView</span>.<span class="title">SurfaceHolderLisener</span> {</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSurfaceHolderCreated</span>(SurfaceHolder holder) {</div><div class="line">		mSurfaceHolder = holder;</div><div class="line">	}</div><div class="line">}</div><div class="line">vCameraPreview.setHolderListener(<span class="keyword">new</span> SurfaceObserver());</div></pre></td></tr></table></figure>
+
+<p>然后我们来Open一个Camera。</p>
+<pre><code><span class="comment">//代码省略掉了检测Camera个数，获取CameraId还有设置CameraPreviewSize的逻辑。那是其他部分的内容了。</span>
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mCamera = Camera.open(mCameraId);</div></pre></td></tr></table></figure>
+
+<p>最后把SurfaceHolder设置给Camera就可以开启预览了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mCamera.setPreviewTexture(mSurfaceHolder);</div><div class="line">mCamera.startPreview();</div></pre></td></tr></table></figure>
+
+<p>一般网上搜到的Sample Code会把这三步放到Activity的onCreate里顺序执行。也就是等SurfaceHolderListener获取到了SurfaceHolder再启动Camera。Camera启动完成再把它俩关联上并启动预览。我们来看一下再小米1上这个流程的耗时。</p>
+<pre><code>获取SurfaceHolderListener    0.3秒
+启动Camera                     1秒
+</code></pre><p>如果把Activity创建的时间和其它代码执行的时间都忽略的话，我们一共耗费了1.3秒。而用户对大于1秒的等待都是不耐烦的。更不用说在有的手机上Camera启动时间能够达到反人类的1.5秒以上。</p>
+<p>很容易想到的一个优化方案就是让获取SurfaceHolder和启动Camera在两个线程里异步进行。这样应该可以使耗时在小米1上缩短到1秒左右，勉强能接受。</p>
+<p>SurfaceHolder的获取本身就是异步的。我们只需要在Activity的onCreate里再启动一个异步线程去启动Camera。在这两个异步线程执行完成后都分别去检测另一个线程是否完成。简化的代码如下。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState){</div><div class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">	vCameraPreview.setHolderListener(<span class="keyword">new</span> SurfaceObserver());</div><div class="line">	<span class="keyword">new</span> Handler().post(<span class="keyword">new</span> Runnable(){</div><div class="line">		<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span>(){</div><div class="line">			mCamera = Camera.open(mCameraId);</div><div class="line">			checkCamera();</div><div class="line">		}		</div><div class="line">	});	</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">SurfaceObserver</span> <span class="keyword">implements</span></span></div><div class="line">		<span class="title">SupportCamSurfaceView</span>.<span class="title">SurfaceHolderLisener</span> {</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSurfaceHolderCreated</span>(SurfaceHolder holder) {</div><div class="line">		mSurfaceHolder = holder;</div><div class="line">		checkCamera();</div><div class="line">	}</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">checkCamera</span>(){</div><div class="line">	<span class="keyword">if</span>(mSurfaceHolder != <span class="keyword">null</span> && mCamera != <span class="keyword">null</span>{</div><div class="line">		mCamera.setPreviewTexture(mSurfaceHolder);</div><div class="line">		mCamera.startPreview();</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>这样就算优化完了吗？让我们想想苹果是怎么做的吧。苹果很喜欢用一些过渡动画来掩饰后台加载的耗时。毕竟相机启动的这1秒时间是由硬件限制的，我们在app层面上没办法把它缩短，所以我们不如加一个动画，并在动画过程中提前启动相机，来一个苹果式的小trick。我给进入相机Activity的按钮加了一个0.5秒的反馈动画，又给相机Activity加了一个0.3秒的Pending动画，在两个动画完成后，只需再有0.2秒的时间小米1的相机就完成启动了，这对用户来说已经是完全可以接受的了。</p>
+<p>上面的逻辑实现起来有两个问题。一个是在我们获取到CameraActivity的实例之前就要开始启动相机了，另一个是Camera启动完成后没办法调用Activity实例的checkCamera方法。所以我们只能把Camera和Activity实例分别存放到一个static变量里。写起来不复杂，只是需要注意变量的回收。在Activity的onDestroy里先把Camera release再设为null，Activity实例的引用直接设为null，这样就可以了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> Camera mCamera;	</div><div class="line"><span class="keyword">static</span> CameraActivity instance;	</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState){</div><div class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">	instance = <span class="keyword">this</span>;</div><div class="line">	vCameraPreview.setHolderListener(<span class="keyword">new</span> SurfaceObserver());</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> openCamera{</div><div class="line">	<span class="keyword">new</span> Handler().post(<span class="keyword">new</span> Runnable(){</div><div class="line">		<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span>(){</div><div class="line">			mCamera = Camera.open(mCameraId);</div><div class="line">			<span class="keyword">if</span>(instance != <span class="keyword">null</span>){</div><div class="line">				instance.checkCamera();</div><div class="line">			}</div><div class="line">		}		</div><div class="line">	});	</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">SurfaceObserver</span> <span class="keyword">implements</span></span></div><div class="line">		<span class="title">SupportCamSurfaceView</span>.<span class="title">SurfaceHolderLisener</span> {</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSurfaceHolderCreated</span>(SurfaceHolder holder) {</div><div class="line">		mSurfaceHolder = holder;</div><div class="line">		checkCamera();</div><div class="line">	}</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">checkCamera</span>(){</div><div class="line">	<span class="keyword">if</span>(mSurfaceHolder != <span class="keyword">null</span> && mCamera != <span class="keyword">null</span>{</div><div class="line">		mCamera.setPreviewTexture(mSurfaceHolder);</div><div class="line">		mCamera.startPreview();</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
+
+]]></content:encoded>
+      <comments>http://emptyzone.github.io/Tech/2013/11/17/android-launch-camera-speed-up/#disqus_comments</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[Sparkles Background]]></title>
+      <link>http://emptyzone.github.io/Tech/2012/09/05/sparkles-background-javascript/</link>
+      <guid>http://emptyzone.github.io/Tech/2012/09/05/sparkles-background-javascript/</guid>
+      <pubDate>Tue, 04 Sep 2012 16:00:00 GMT</pubDate>
+      <description><![CDATA[<p><img src="/images/sparkles-background-javascript/1.jpg" alt=""></p>
+]]></description>
+      <content:encoded><![CDATA[<p><img src="/images/sparkles-background-javascript/1.jpg" alt=""></p>
+<a id="more"></a>
+
+<h1 id="背景圆球飘动效果的JS">背景圆球飘动效果的JS</h1>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Spark = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> a = <span class="keyword">this</span>;;</div><div class="line">    <span class="keyword">this</span>.n = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</div><div class="line">    <span class="keyword">this</span>.caculateStyle().newSpeed().newPoint().</div><div class="line">		display().newPoint().fly()</div><div class="line">};</div><div class="line">Spark.prototype.display = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    $(<span class="keyword">this</span>.n).attr(<span class="string">"style"</span>, <span class="keyword">this</span>.style).</div><div class="line">		css(<span class="string">"position"</span>, <span class="string">"absolute"</span>).css(<span class="string">"z-index"</span>, -<span class="number">1</span>).</div><div class="line">			css(<span class="string">"top"</span>, <span class="keyword">this</span>.pointY).</div><div class="line">				css(<span class="string">"left"</span>, <span class="keyword">this</span>.pointX);</div><div class="line">    $(<span class="string">'#background'</span>).append(<span class="keyword">this</span>.n);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span></div><div class="line">};</div><div class="line">Spark.prototype.caculateStyle= <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="keyword">var</span> size = <span class="keyword">this</span>.random(<span class="number">18</span>) + <span class="number">2</span>;</div><div class="line">	<span class="keyword">var</span> alpha = <span class="number">0.2</span> + <span class="number">0.8</span> * <span class="number">2</span>/size;</div><div class="line">	<span class="keyword">var</span> shadowAlpha = alpha*<span class="number">2</span>;</div><div class="line">	<span class="keyword">this</span>.style = <span class="string">"border-radius: 50%;"</span>;</div><div class="line">	<span class="keyword">this</span>.style = <span class="keyword">this</span>.style	+ <span class="string">"width:"</span> + size + </div><div class="line">		<span class="string">"px;height:"</span> + size + <span class="string">"px;"</span>;</div><div class="line">	<span class="keyword">this</span>.style = <span class="keyword">this</span>.style + <span class="string">"box-shadow:0 0 "</span> + </div><div class="line">		size+<span class="string">"px rgba(255,255,255,"</span>+ shadowAlpha +<span class="string">");"</span>;</div><div class="line">	<span class="keyword">this</span>.style = <span class="keyword">this</span>.style + <span class="string">"background-color:"</span> + </div><div class="line">		<span class="string">"rgba(255,255,255,"</span>+ alpha +<span class="string">");"</span>;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">}</div><div class="line">Spark.prototype.fly = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> a = <span class="keyword">this</span>;</div><div class="line">    $(<span class="keyword">this</span>.n).animate({</div><div class="line">        top: <span class="keyword">this</span>.pointY,</div><div class="line">        left: <span class="keyword">this</span>.pointX</div><div class="line">    }, <span class="keyword">this</span>.speed, <span class="string">"linear"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        a.newSpeed().newPoint().fly()</div><div class="line">    })</div><div class="line">};</div><div class="line">Spark.prototype.newSpeed = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">this</span>.speed = (<span class="keyword">this</span>.random(<span class="number">10</span>) + <span class="number">5</span>) * <span class="number">1100</span>;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span></div><div class="line">};</div><div class="line">Spark.prototype.newPoint = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">this</span>.pointX = <span class="keyword">this</span>.random(<span class="built_in">window</span>.innerWidth - <span class="number">100</span>) + <span class="number">50</span>;</div><div class="line">    <span class="keyword">this</span>.pointY = <span class="keyword">this</span>.random(<span class="built_in">window</span>.innerHeight - <span class="number">100</span>) + <span class="number">50</span>;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span></div><div class="line">};</div><div class="line">Spark.prototype.random = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> </span>{</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random() * a) - <span class="number">1</span></div><div class="line">};</div><div class="line">$(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">if</span> ($.browser.msie && $.browser.version &lt; <span class="number">9</span>) {</div><div class="line">        <span class="keyword">return</span></div><div class="line">    }</div><div class="line">    <span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line">    <span class="keyword">var</span> b = [];</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; a; i++) {</div><div class="line">        b[i] = <span class="keyword">new</span> Spark()</div><div class="line">    }</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p><a href="/downloads/code/js/sparkles.js" target="_blank">Download</a></p>
+]]></content:encoded>
+      <comments>http://emptyzone.github.io/Tech/2012/09/05/sparkles-background-javascript/#disqus_comments</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[金牛座]]></title>
+      <link>http://emptyzone.github.io/Life/2012/08/30/little-taurus/</link>
+      <guid>http://emptyzone.github.io/Life/2012/08/30/little-taurus/</guid>
+      <pubDate>Wed, 29 Aug 2012 16:00:00 GMT</pubDate>
+      
+      <content:encoded><![CDATA[<p>金牛座的女生都很靠谱，我在夸谁，如果你能看到请一定要对号入座。</p>
+]]></content:encoded>
+      <comments>http://emptyzone.github.io/Life/2012/08/30/little-taurus/#disqus_comments</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[悲剧才隽永]]></title>
+      <link>http://emptyzone.github.io/Read/2011/10/12/tragedy-lasts/</link>
+      <guid>http://emptyzone.github.io/Read/2011/10/12/tragedy-lasts/</guid>
+      <pubDate>Tue, 11 Oct 2011 16:00:00 GMT</pubDate>
+      <description><![CDATA[<p>『我不是故意的，请不要再哭了。我这支铅笔要送给你，我只削过一次哦。我真的不是故意害你跌倒的，对不起啦。』</p>
+<p>「老师早就说过不许在走廊上楼梯口跑，你们不守规矩害我帮老师拿的作业簿掉到一楼，上面有泥土，我对不起爱护作业簿的同学，铅笔还给你，你应该跟全班说对不起。」</p>
+]]></description>
+      <content:encoded><![CDATA[<p>『我不是故意的，请不要再哭了。我这支铅笔要送给你，我只削过一次哦。我真的不是故意害你跌倒的，对不起啦。』</p>
+<p>「老师早就说过不许在走廊上楼梯口跑，你们不守规矩害我帮老师拿的作业簿掉到一楼，上面有泥土，我对不起爱护作业簿的同学，铅笔还给你，你应该跟全班说对不起。」</p>
+<a id="more"></a>
+
+
+<p>『是你叫我跟全班说对不起的啊。』</p>
+<p>「我又没有叫你站在讲台上说对不起。」</p>
+<p>『我有在收集邮票，你可不可以写信给我？』</p>
+<p>「我没有写过信诶。你先写给我，我再回信给你。」</p>
+<p>「你不是要写信给我吗？」</p>
+<p>『我只知道你叫陈淑芬，我又不知道你家地址。』</p>
+<p>『诶，瘦皮猴是我的绰号，写信要写我的名字，李政国。』</p>
+<p>「瘦皮猴，我下次会改进的。」</p>
+<p>『谢谢你，爱哭芬。』</p>
+<p>「上课不可以传纸条。上课不可以传纸条。上课不可以传纸条。上课不可以传纸条。。。」</p>
+<p>『上课不可以传纸条。上课不可以传纸条。上课不可以传纸条。上课不可以传纸条。。。』</p>
+<p>『</p>
+<p>淑芬：</p>
+<p>收信快乐。</p>
+<p>今天的天气真好，有一点云，不到二十度的气温，让人期待阳光的温暖。</p>
+<p>已经整整一年没有和你写信了，你好吗？</p>
+<p>去年，我来不及参加你的葬礼，我赶到的时候已经迟了两天，你弟弟把你遗留下来的纸箱交给我，我原封不动的把它带回台北，我一直没有勇气把它打开。</p>
+<p>一直到一个小时之前，我才终于把它打开来，跟我猜的一样。</p>
+<p>里面装的全是我写给你的信，一封一封，你遗留在这个世界上的信。</p>
+<p>我很仔细的把它们又读了一遍，我还看到了那支铅笔，看起来它还是只削过一次的样子。</p>
+<p>爱你。</p>
+<p>』</p>
+<p>「谢谢你。瘦皮猴。」</p>
+]]></content:encoded>
+      <comments>http://emptyzone.github.io/Read/2011/10/12/tragedy-lasts/#disqus_comments</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[极简主义设计与独立博客]]></title>
+      <link>http://emptyzone.github.io/Tech/2011/02/19/minimalism-and-blog/</link>
+      <guid>http://emptyzone.github.io/Tech/2011/02/19/minimalism-and-blog/</guid>
+      <pubDate>Fri, 18 Feb 2011 16:00:00 GMT</pubDate>
+      <description><![CDATA[<p>极简主义是一种生活态度，倡导简约整洁优雅的感官体验。在设计上倾向于以极少的元素辅以大面积留白，从而使内容重点得以强调突出，优雅地传达出设计师的感情。</p>
+<p>Gary Blog的主题便是Gary对极简主义设计的践行，Gary倾心于这种干净而优雅的体验，作为个人博客，Gary Blog实化了Gary理想中面对生活的态度。下面Gary简单阐述一下自己对极简主义设计与个人博客之间联系的理解。</p>
+]]></description>
+      <content:encoded><![CDATA[<p>极简主义是一种生活态度，倡导简约整洁优雅的感官体验。在设计上倾向于以极少的元素辅以大面积留白，从而使内容重点得以强调突出，优雅地传达出设计师的感情。</p>
+<p>Gary Blog的主题便是Gary对极简主义设计的践行，Gary倾心于这种干净而优雅的体验，作为个人博客，Gary Blog实化了Gary理想中面对生活的态度。下面Gary简单阐述一下自己对极简主义设计与个人博客之间联系的理解。</p>
+<a id="more"></a>
+
+<h1 id="一、内容为主，设计为辅">一、内容为主，设计为辅</h1>
+<p>Bloggers写博客的目的无疑是为了发出自己的声音并被别人听到，而真正有价值的内容才是吸引读者的关键。</p>
+<p>极简主义设计通过对页面元素数量的最小化，从而加强了博客内容在读者眼中的权重。使读者的注意力集中于内容上，这是在网络阅读中难能可贵的体验。</p>
+<h1 id="二、大面积留白">二、大面积留白</h1>
+<p>不同分辨率的显示器一直是网页设计者所纠结的问题，横向滚动条是浏览体验的杀手，但兼容所有分辨率的网页又很难设计。</p>
+<p>而极简主义利用大量的留白解决了这个问题，两侧的留白自动适应了所有不同的分辨率。同样留白的单调也避免了读者的视线做无意义的游移。</p>
+<h1 id="三、慎用色彩">三、慎用色彩</h1>
+<p>极简主义设计采用极少的颜色展示内容，页面风格统一优雅。仅有的颜色也以冷色调为主。</p>
+<p>暖色调普遍会在人脑中产生警醒的作用，所以暖色调应用于强调，而过多的强调无疑会使读者找不到重点不知所措，甚至给读者带来过大的视觉压力。</p>
+<p>所以黑白与冷色调成了极简主义设计中的主角。</p>
+<h1 id="四、优秀的排版">四、优秀的排版</h1>
+<p>由于色彩的简化和留白的大量出现，极简主义中对内容的组织只能通过排版来体现。</p>
+<p>对内容的排版应遵从重复、对齐、对比和亲密性原则。</p>
+<p>重复原则即对页面内同类元素采用相同的设计，从而使读者具备直观的相联系的印象。</p>
+<p>对齐原则即对页面元素建立明确的对齐线，使读者的视线移动有所依循，避免居中对齐。</p>
+<p>对比原则即对页面内具有更高优先级的元素采用完全不同的设计，对比原则的基础是重复原则，只有在拥有足够的重复元素的前提下的对比才会产生突出作用，否则只会使页面杂乱。</p>
+<p>亲密性原则即对页面内元素依相关性大小来决定其在空间上的距离，相关元素距离近，无关元素距离远。</p>
+]]></content:encoded>
+      <comments>http://emptyzone.github.io/Tech/2011/02/19/minimalism-and-blog/#disqus_comments</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[那是连风都不曾抵达的地方 那是连太阳都无法温暖的角落]]></title>
+      <link>http://emptyzone.github.io/Read/2011/01/27/beyond-wind-and-light/</link>
+      <guid>http://emptyzone.github.io/Read/2011/01/27/beyond-wind-and-light/</guid>
+      <pubDate>Wed, 26 Jan 2011 16:00:00 GMT</pubDate>
+      <description><![CDATA[<p>搬来一篇墙外的文章。</p>
+<h1 id="（一）">（一）</h1>
+<p>不知道各位玩过一个电脑小游戏没有。游戏是这样的，一个场景中，充满着不同方向的引力场和斥力场。游戏者在某个特定点发射一个小球。通过选择特定的发射角度与发射方向，小球就会在屏幕上翻转盘旋，划着奇异的轨道滑向某个终点。</p>
+<p>我想，1963年的Edward.C.Stone一定是玩过这个游戏的。或许这正是他闲暇之余设计的一个小程序。</p>
+<p>那时，他还是芝加哥大学的一个研究生，工作之一是计算某些卫星的发射轨道。在一次计算中，他惊讶地发现，当太阳系行星排列成某些特殊形状的时候，它们的引力就可以不断地为经过它们周边的物体加速。</p>
+<p>进一步的仔细计算表明，这种事情每大约175年才会发生一次，而这种免费午餐式的摇摆变轨加速，能在当时的条件下，用大约十二年时间，就到达原本需要花费三十年时间才能到达的海王星。</p>
+<p>而下一次这种时机的来临，是1977年。</p>
+]]></description>
+      <content:encoded><![CDATA[<p>搬来一篇墙外的文章。</p>
+<h1 id="（一）">（一）</h1>
+<p>不知道各位玩过一个电脑小游戏没有。游戏是这样的，一个场景中，充满着不同方向的引力场和斥力场。游戏者在某个特定点发射一个小球。通过选择特定的发射角度与发射方向，小球就会在屏幕上翻转盘旋，划着奇异的轨道滑向某个终点。</p>
+<p>我想，1963年的Edward.C.Stone一定是玩过这个游戏的。或许这正是他闲暇之余设计的一个小程序。</p>
+<p>那时，他还是芝加哥大学的一个研究生，工作之一是计算某些卫星的发射轨道。在一次计算中，他惊讶地发现，当太阳系行星排列成某些特殊形状的时候，它们的引力就可以不断地为经过它们周边的物体加速。</p>
+<p>进一步的仔细计算表明，这种事情每大约175年才会发生一次，而这种免费午餐式的摇摆变轨加速，能在当时的条件下，用大约十二年时间，就到达原本需要花费三十年时间才能到达的海王星。</p>
+<p>而下一次这种时机的来临，是1977年。</p>
+<a id="more"></a>
+
+<h1 id="（二）">（二）</h1>
+<p>有诗云，一万年太久，只争朝夕。只是科学的归科学，剩下的全归钱。不要说一万年太久，就是一十二年朝夕必争，也没有一个机构肯下这种本钱。卫星上了天，不是说就算完事了，地面控制要钱，地面数据接收要钱，一个不小心卫星出状况了，抢救要钱——说是抢救，其实无非是转着圈儿搜卫星信号而已，宛若大海捞针——闲话少说，总之，啥都要钱，没有人会在一个一飞十二年花钱如流水而且随时都会跟别的男人跑掉的娇宝贝身上下注。</p>
+<p>怎么办？只能把野心藏起来。我们根本没有去海王星的打算，但是，这摇摆变轨加速，可不只缩短去海王星的时间呐。它同样可以让去木星土星的时间，缩短到只需三到四年。</p>
+<p>于是，小心翼翼地，科学家们在六十年代中期，紧跟着一系列成功的水手号卫星之后，提出说，既然我们的水手们如此成功，探测了火星、金星和水星，为什么不也去木星看看呢？就当是这个计划的延续好了。</p>
+<p>NASA答应了，便有了水手计划之木星土星特航，分别叫做水手一十一号，和水手一十二号。</p>
+<p>司马昭之心，路人皆知。哪里有什么水手的延续。很快，琵琶就被扔掉了，而半边夜叉脸也露了出来。这个计划被改名叫做旅行者计划，理直气壮地要一直飞向土星。</p>
+<p>当时，人类还从未近距离拍摄过这两颗行星。在太空竞赛这个大环境的支撑下，计划同样通过了。而在计划的末尾，则约略提到，如果卫星够幸运够强大的话，或许，可以飞到海王星吧。</p>
+<h1 id="（三）">（三）</h1>
+<p>海王星？</p>
+<p>这次，轮到NASA开始琢磨了。海王星？海王星在哪里？海王星到太阳的距离是土星到太阳距离的三倍，木星到太阳距离的六倍，以及地球到太阳距离的三十倍。这几乎已经飞出太阳系了！</p>
+<p>啊！原来，我们还有这种指望啊……</p>
+<p>人永远是不知足的，得到了一，还想得到二，而得到了二，就想得到三——得到了三，他就得到了万物。只是，这次NASA的兴奋与希冀，甚至超出了万物。</p>
+<p>他们想和外星人取得联系。地球。太阳。太阳系。太阳系以外。外星人。</p>
+<p>人生五十年，如梦似幻。七零年代的卡尔·萨根，正处在梦幻年华的黄金时刻。他刚刚在康奈尔大学走上了终生教职的道路，同时担任着NASA的顾问。在这之前，在他的推动之下，1972年发射的先驱者11号和先驱者12号，已经携带上了画者人类男女图象的铝板，向着远方飞去。这次，看上去，又是一个机会啊。</p>
+<p>于是，新的内容被追加进了这个旅行者计划：它将携带更充分的燃料——反正，烧二十年的电池和烧五十年的电池差不多重——然后，再加进一块金盘，录入人类的资料。这东西也不太重，而且，是个软媒介，技术要求不高，开发消耗就更少了。</p>
+<p>看起来，有百利而无一害啊。</p>
+<p>1972年，探测土星木星和它们的卫星，也说不定溜达到天王星海王星，顺带还有很小可能跑出太阳系的旅行者计划，被正式批准了。</p>
+<h1 id="（四）">（四）</h1>
+<p>花开花落，花落花开。转眼间，人类历史上的第一颗卫星已经发射了整整二十二年。而前辈强者，如范阿伦、钱德塞克诸人，也逐渐老去。当年的小伙子Edward Stone，现在已经是加州理工的教授了。旅行者一号和二号于1977年先后离开了地球母亲，三年之后的现在，她们已经双双飞过了木星，并有着诸多的发现，不光观测到了第一座地球之外的活火山，还为木星找到了三个迷途的孩子。在卫星中，她们算得上交际名媛，美名远扬。</p>
+<p>而科学家们，则开始为新的卫星做出准备了。</p>
+<p>“朋友，你想得到我的心么？”“当然。”“那么，请遵守四条原则，多，快，好，省。”</p>
+<p>这大抵是NASA的官员对每一个前来拜访的科学家所说的话。既要让马儿跑，还不准多吃草。、</p>
+<p>那么，只好赚外快，打野食。这次，Edward Stone把他的小算盘，打到了太阳身上。</p>
+<p>什么样的车最省油？</p>
+<p>答案是不开的车。</p>
+<p>在日地体系中，有五个引力平衡点。其中，离地球最近的那个，正好位于地球和太阳的连线上，靠近地球的这边。假如把一颗卫星送到这里，那么，就可以让它连续地观察太阳，而不需做出任何主动运动——在法向上，这是一个稳定平衡，日地引力将把这颗卫星带着绕日转动。它只需在切向上细微地调整自己的位置就好了。</p>
+<p>NASA一定会喜欢这个计划的，Ed想，这些人虽然有钱，但是顿顿都吃能报销的公务餐。你越是抠门，就越对了他们的胃口。现在他要找的，只是一群好哥们。人多声势大，万言书远不如万人签名来得好用。</p>
+<p>于是，在1980年的地球物理年会上，他找到了他的几个旧识与朋友，比如，旅行者计划的第一大脑，希腊人Krimigis；他在加州理工的同事，Dick Mawaldt；还有新近在旅行者计划中崭露头角的研究员George Gloeckler和他在马里兰的同事，Glen Mason。</p>
+<p>大家都有自己的绝活和自己的兴趣。几个人碰头一商量，不若数好合一好，把每个人的仪器凑到一起，组成一颗新卫星，放到这个日地引力平衡点处。</p>
+<p>而这时，远在地球的另一面，George Gloeckler未来最好的朋友，刚刚服完兵役，开始了他在马克思-普朗克实验室的研究员工作。</p>
+<h1 id="（五）">（五）</h1>
+<p>时钟开始迅速地再次向后拨动。这次，我们来到了1990年的Iowa。</p>
+<p>一十二年之前，Eberhard Moebius还是一个小人物，他在波鸿大学拿到了自己的博士学位，然后去服了一年兵役。</p>
+<p>而现在，四十二岁的他，在《自然》杂志上发表了论文，也拥有了属于自己的粒子飞行时间探测仪，已经是业内小有名气的研究者了。他有了自己的研究经费，更有了很多和他密切合作的朋友，其中和他关系最好的一位，是研究太阳风结构的George Gloeckler。</p>
+<p>于是，在邀请之下，他踌躇满志地踏上了美国的土地，来到了世界上空间物理最强的Iowa大学，希望在这里打出属于自己的一片天空。</p>
+<p>但是事情并不令他满意。短短数天时间的互相考察之中，他觉得他并没有看到他想要的，一派欣欣向荣的学术气氛。相反，空气中搀杂着一些说不出的味道来。人与人之间，似乎多了点敷衍，少了些真诚。一边参观著名的范阿伦大楼，他一边与陪同者交流。令他最感到惊讶的是，当他提出说，他可以和其他教工共用以他申请到的经费购买的仪器时，得到的是冷冰冰的答复。</p>
+<p>“不，我们这里不这么干。仪器是属于你自己的，何必要给别人用？”</p>
+<p>尽管如此，他还是在这里交到了一些朋友，比如系主任德怀特·尼克尔森，甚至和他竞争同一个特殊教授职位的克里斯托佛·戈尔茨。</p>
+<p>数月之后，Eberhard同时接到了他的两位好友，George Gloeckler和Martin Lee的邀请，分别来自Maryland和New Hampshire。而Iowa这边，与他联系的人，似乎始终和他有某些隔阂。</p>
+<p>他最终去了New Hampshire。在去New Hampshire之前，他最后造访了Iowa一趟，和尼克尔森与戈尔茨一起吃了顿饭。</p>
+<p>“是啊，大家都只顾自己，从不合作。”尼克尔森感叹道：“但是我也没什么办法。事情变成这个样子，也不是一天两天能够解决的了。”</p>
+<p>“他们是那里我见到的不多的真诚而友好的人。他们是例外。”多年以后，Eberhard这样评价说。</p>
+<p>戈尔茨最终得到了那个职位，他有两个学生，一个叫做卢刚，一个，叫做山林华。</p>
+<h1 id="（六）">（六）</h1>
+<p>1985年，北京大学本科毕业生卢刚，来到了Iowa大学，修读空间物理博士。他选择了克里斯托佛·戈尔茨作为他的导师。他的物理基础很好，选择的课题也是理论性很强的电磁等离子体基础研究。</p>
+<p>1986年，中国科技大学本科毕业生山林华，也来到了美国。他一开始就读的是德克萨斯农机大学。1987年，他转入Iowa大学，并同样选择了戈尔茨作为导师。山林华的研究方向是戈尔茨的另外一个主攻方向，木星的磁场研究。</p>
+<p>经过木星的卫星并不多。在当时，主要的数据来源，仍然是1979年经过那里的两颗旅行者卫星。这同样也成为了山林华的研究的主要依靠。</p>
+<p>山林华和卢刚后来在博士资格考试中，并列获得了第一名。</p>
+<p>1990年，卢刚以第二作者的身份，发表了他的第一篇，也是唯一一篇论文。</p>
+<p>1990年末，山林华博士答辩成功，他利用旅行者卫星研究的木星光环电磁效应的课题，取得了圆满成功，并得到了教授们的一致好评。旅行者的数据是独一无二的，山林华的研究，同样是独一无二的。教授们把这篇论文评为当年的优秀博士论文。</p>
+<p>1990年末1991年初，山林华获得了Iowa大学的一个博士后职位，他仍然在戈尔茨手下工作。</p>
+<p>1991年1月，山林华的第一篇论文发表在《天体物理杂志》上，研究方向同样是木星光环。山林华是第一作者。</p>
+<p>1991年2月和1991年8月，山林华又以第一作者的身份连续发表了两篇文章。这两篇文章则转入了基本等离子体研究，讨论了地球的磁场扰动。</p>
+<p>1991年5月，卢刚试图博士毕业，但是并没有通过初审。他的第二次答辩终于通过了。可惜，他希望留在美国，却并没有找到稳定的工作。</p>
+<p>1991年11月1日，周五，下午3点。卢刚在研讨会进行的过程中，先后开枪射杀了他的导师，戈尔茨，和组中的副教授史密斯，接着他开枪打死了山林华。他离开了组会房间，下到2楼，射杀了系主任尼克尔森。最后他来到行政大楼，打死了副校长克黎利，重伤当时在场的一名本科生学生助理，随后饮弹自尽。</p>
+<p>从此，范阿伦大楼里，多了几分森森鬼气。而Iowa，这个之前高高在上的空间物理研究者们的圣地，也一蹶不振，泯然众人。</p>
+<p>1993年5月，以戈尔茨、山林华和史密斯为第一、第二、第三作者的论文发表在领域内最好的杂志，《地球物理研究》上。这也是山林华为科学作出的最后的贡献。</p>
+<h1 id="（七）">（七）</h1>
+<p>二十年弹指一挥间。曾几何时，岁月爬上了小伙子的头，爬上了姑娘的腰。曾几何时，往日的英姿飒爽，已变得老成持重。六十岁的Edward Stone，已经做过了加州理工数学、物理和空间学院的院长，继而在前任辞世之后，担任起了旅行者计划的主要科学负责人。而两位旅行者，已经远远超过了人们的期待。</p>
+<p>旅行者一号，于1980年掠过土星。在远远地对土卫一进行预观测之后，研究人员决定对她进行改道，让她对土卫一作出详细观测，不再经过天王星与海王星。而旅行者二号，则成为了迄今为止，天王星和海王星的唯一人造访客。</p>
+<p>在卢刚夺去地球上最好的空间物理系的灵魂之前的1989年，旅行者们已经超额完成了她们的行星间观测，并成为了人类太空探索史上划时代的璀璨明珠。</p>
+<p>然则，好事多磨。那颗原本要放在地日引力平衡点的卫星，虽然早在1983年，就在Glen Mason和George Gloeckler的主持下，正式提上日程，却迟迟没有获得批准。</p>
+<p>直到又过了快十五年。</p>
+<p>1997年年底，卫星ACE，在Stone的主持下，射入太空。这是真正属于Stone的第一颗深空探测卫星。</p>
+<h1 id="（八）">（八）</h1>
+<p>那是连风都不曾抵达的地方。</p>
+<p>那是连太阳都无法温暖的角落。</p>
+<p>那是寂寞的远处，太阳系的边缘。</p>
+<p>十多年前，一群人曾经聚在一起讨论过，太阳系统的边界，是在什么地方。</p>
+<p>据说，在很远很远的地方，太阳风会慢到音速以下，因此形成一个边界，叫做终止边界。这个边界再望外走，又走很远很远很远，星际粒子流将最终克服太阳风等离子体，而形成一个弓形冲击波。这个弓形冲击波的里边界，叫做氦球层顶。而这两个边界之间的地方，叫做氦鞘。它们共同构成了太阳系的最外围。</p>
+<p>但是，没有人知道这套理论是否正确。更没有人知道，假如这套理论是正确的话，这两个边界又都在什么地方。</p>
+<p>Just for fun，他们作了一个民意调查，五十多位科学家，每个人把自己的看法写在纸上。</p>
+<p>结果大约是这样的：大部分人认为，终止边界会在地日距离的五十倍左右。小部分人认为可能达到六十倍，还有三四个人认为，可能有八十个日地距离那么远。</p>
+<p>旅行者们孤独前行。</p>
+<p>三年过去了。这些科学家在一起，又作了一次民意调查。这时，旅行者已经离太阳超过五十三倍日地距离了，什么都没有发生。</p>
+<p>这次，大约有三分之一的人，对理论提出了怀疑。另一些人认为，七十到八十倍距离才是合理的。少数人说，或许能到九十倍吧。</p>
+<p>而旅行者们继续孤独前行。</p>
+<p>太阳的温暖越来越难以关照到这两位跋涉的旅人了。她们不得不开始更多地使用自身携带的化学放射电池。即使是这样，能量的供应也在逐渐减少。她们不得不勒紧裤带，节衣缩食。</p>
+<p>1998年，光学成相设备被关掉了。她们失去了一只眼睛。</p>
+<p>紧接着，2000年，旅行者2号的红外探测仪和紫外探测仪也被关掉了，她已经处于全盲的状态——旅行者1号还努力地半睁着她的紫外探测仪，为此，她不得不让她的左臂，太阳风等离子体观测仪停止工作。</p>
+<p>2001年，太阳能电池板所提供的电力已经不足整个卫星供给的十分之一，她们难过地瘸了。</p>
+<p>但是她们仍在跋涉。</p>
+<p>2002年，旅行者2号的高效发射天线停止工作，从此她嘶哑了嗓子，靠着低效频段，以原来千分之一的速度发回数据。</p>
+<p>地面观测人员开始动摇了：她们还能支撑多久？旅行者1号已经离太阳有九十个日地距离了，但是什么都没有看到。终止边界，氦球鞘层，氦球层顶——太空中静悄悄，什么也没有发生。只有日复一日，重复着的相同的数据。</p>
+<p>人们终于决定，是时候放弃这两颗卫星了。她们已经垂垂老矣，或许，不再适合干什么重活了。</p>
+<h1 id="（九）">（九）</h1>
+<p>我们应该感谢什么呢？或许，科学最应该感谢的是官僚主义。官僚主义让科学推迟开始，但是也让科学推迟了结束。</p>
+<p>就在层层审批之中，天际传来了波动。</p>
+<p>2003年11月，旅行者1号进入了终止边界。</p>
+<p>审批停止了。大家张大了嘴。</p>
+<p>这时，旅行者1号距离太阳整整九十四个日地距离。无人能料。</p>
+<p>而在四年之后，2007年7月，旅行者2号在八十七个日地距离处，在另一位置穿越了终止边界。</p>
+<p>盖棺定论。理论是对的，尽管，还需要更多发展。</p>
+<p>而旅行者们的生命，也数得到尽头了。化学放射电池不可能无休止地燃烧下去。顶多到2025年，旅行者上的最后一件科学设备也将停止运转。一切，都将归于平静。</p>
+<p>她们哪里是水性杨花的娇气小姐。她们是身残志坚，不离不弃，天赋异禀，功勋卓著，坚韧不拔，死而后已的奇女子。</p>
+<h1 id="尾声">尾声</h1>
+<p>2007年，ACE的陨落已经提上日程。连续不断的太阳粒子冲击让这位在航空公司、GPS公司和手机公司中信誉颇高的预言家不堪重负。</p>
+<p>2012年，中国的夸父将走上日地引力平衡点，取代ACE的位置，继续它为地球干了一十五年的太阳风暴预测工作。</p>
+<p>2006年，冥王星探测器“新地平线”号从佛罗里达起飞。</p>
+<p>2009年，Eberhard Moebius和他的同僚一起，发起了新一轮的太阳系边界探测计划——自旅行者出发之后，该计划在三十年之内被人反复提出，无一通过。</p>
+<p>这一年，最早提出太阳风模型的Parker 86岁。Gloeckler 76岁，已经几乎无法辨认哪怕是站在对面的人的相貌。Stone 71岁，已经有了两个孙子。Mason 67岁。Moebius 61岁。即使这个卫星计划最终获得通过，他们之中也只有最幸运的那些人，才能看到卫星到达目标的那一刻。</p>
+<p>而人类历史上走得最长的旅行者们，仍在无声地滑向远方，继续着她们寂静的旅程。</p>
+<p>或许，她们会继续她们的幸运，在遥远的时空中的某一点，被某种生物发现，找到自己完美的归属吧……</p>
+]]></content:encoded>
+      <comments>http://emptyzone.github.io/Read/2011/01/27/beyond-wind-and-light/#disqus_comments</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[演不完的惨绿青春]]></title>
+      <link>http://emptyzone.github.io/Life/2011/01/26/angry-teens/</link>
+      <guid>http://emptyzone.github.io/Life/2011/01/26/angry-teens/</guid>
+      <pubDate>Tue, 25 Jan 2011 16:00:00 GMT</pubDate>
+      <description><![CDATA[<p><img src="/images/angry-teens/title.jpg" alt=""></p>
+<p>青春这个字眼总是与惨绿这个形容相伴，就像忧伤和愤怒总是伴随着每一个即将独自面对这个世界的年轻的心。</p>
+<p>在我们的青春即将结束的那几年，仍然怀揣着童稚的理想与信念的我们，眼看着现实社会的无奈，在矛盾重重中我们左冲右突的心灵很难找到自己的位置和可靠的信仰。我们在不断的质问“我究竟还能相信什么？”中，逐渐告别青春，蜕变为麻木的大人。</p>
+]]></description>
+      <content:encoded><![CDATA[<p><img src="/images/angry-teens/title.jpg" alt=""></p>
+<p>青春这个字眼总是与惨绿这个形容相伴，就像忧伤和愤怒总是伴随着每一个即将独自面对这个世界的年轻的心。</p>
+<p>在我们的青春即将结束的那几年，仍然怀揣着童稚的理想与信念的我们，眼看着现实社会的无奈，在矛盾重重中我们左冲右突的心灵很难找到自己的位置和可靠的信仰。我们在不断的质问“我究竟还能相信什么？”中，逐渐告别青春，蜕变为麻木的大人。</p>
+<a id="more"></a>
+
+<hr>
+<p>这几天Gary看了两部关于惨绿青春的电视剧。来自台湾的《他们在毕业的前一天爆炸》和来自大陆的《青春期撞上更年期》。其实单从影片名称即可看出孰优孰劣。</p>
+<p>同样是对青春烦恼的描述，台湾的探讨要比大陆深入得多。大陆的青春片总难免沦入搞笑之流，但对问题症结的探讨却总因要照顾各个阶层的感受，而浅尝辄止，不敢深入。但《他们在毕业的前一天爆炸》一片，尽管只有5集却做出了远胜于30多集的讨论，对家庭教育、学校教育、甚至是选举制度等方面对少年的影响都做了揭示。当然，由于大陆根本不存在选举制度，所以也便无需对其多言了。</p>
+<p>在人物塑造方面，《他们在毕业的前一天爆炸》一片也要更胜一筹。大陆影视作品中的人物往往趋于平面化脸谱化。《青春期撞上更年期》中邓家齐的父母几经周折用了30多集的时间也没改掉试图操控孩子命运的心理。而《他们在毕业的前一天爆炸》中每一个人物都在成长，其中尤以王筱柔和洪成辑的戏份最为出彩。</p>
+<p>王筱柔在最无助的时候哭着说“我要掉下去了”“我的身体里好像破了一个洞”，让电脑前的Gary看得胆战心惊。这恐怕是对我们年少时的心灵最形象的描述了。在孤独无依中与社会与自己进行着无止尽的战斗。想要向上，苦苦挣扎，难逃被拉入万丈深渊的命运。</p>
+<p>而洪仔对社会规则的洞悉，同样让人心寒。洪仔心狠手辣做事绝，但是他却并不邪恶。他的狠本质上是压抑的。有压抑就有爆发，寡言少语的洪仔，一旦爆发，便是不回头的冲撞。在他因抢劫银行入狱，浩远去看望他的时候，他淡淡的一句“就是爆炸了啊”却蕴含了多少辛酸多少委屈，还有心中那么多的愤怒。真的是爆炸，积压啊积压，最后就炸了。</p>
+<p>第五集中浩远对阿丁说“帮我记得，我还没有坏掉的样子”。其实浩远并不是坏掉了。他只是不愿与这世界妥协。他用纯真的眼睛看待这个世界，一直试图分辨出黑白对错。于是他和20年前的小四一样，用生命与这个世界进行了一场单挑。当然，就像20年前的小明说的一样，这个世界并不会因为他们改变。</p>
+<p>马上就要告别青春的Gary，其实是不应该再看这些对前途无用甚至有毒副作用的片子了。但这些片子中所蕴含的力量却吸引着Gary。浩远也好，小四也好，他们不妥协不屈服豁出一切都抗争精神是Gary所渴望的。可现实还是现实，Gary还是Gary。就在这即将告别青春的年月，为青春献上最后的祭奠吧。</p>
+<p>下面是《他们在毕业的前一天爆炸》中浩远最喜欢的一首歌，也算是这部剧的点题歌曲。</p>
+<pre>
+Life's a struggle -宋岳庭
+
+
+
+我睁开双眼踏入这个世界
+
+妈妈给我生命现在让我自生自灭
+
+这让我恐惧在我的眼里每个人都戴着面具
+
+回想过去难道生命就是这样延续？
+
+我抽烟抽得我的肺都黑了
+
+就像整个社会被人心笼罩着它也是黑的
+
+我背着宿命的十字架
+
+也渴望power, paper and respect
+
+我想这大概就是human nature
+
+
+
+佛家说烦恼即是菩提我暂且不提
+
+我倒是希望能够回到母体
+
+老妈对不起我时常把你气得跺脚
+
+你说你后悔当初没有把我堕掉
+
+每当我放学回家放下那沉重的背包
+
+家里空无一人只残留着你香水的味道
+
+那时我知道你那天晚上又要加班
+
+我打开冰箱拿出微波炉食品当晚餐
+
+老爸在凌晨两点钟醉醺醺地回家
+
+我从睡梦中醒来只听到你们在吵架
+
+我没有办法专心面对第二天的考试
+
+老师他不喜欢我我也不喜欢老师
+
+我讨厌穿制服我讨厌学校的制度
+
+我讨厌训导主任的嘴脸讨厌被束缚
+
+that's true
+
+
+
+很多人不屑我的态度他们说我太cool
+
+警察不爽我都曾将我逮捕
+
+I don't give a fuck about 人家说什么
+
+他们想说什么就说什么但是他们算什么
+
+没有谁有权利拿他的标准衡量我
+
+主宰是我自己随便人家如何想我还是我
+
+爱钱的女人只给凯子摸
+
+不懂得用保险套的人别嫌孩子多
+
+金钱力量虽大却生不带来死不带走
+
+紧握着双拳的人们何时能松开手？
+
+
+
+life's a struggle 日子还要过
+
+品尝喜怒哀乐之后又是数不尽的troubles
+
+everyday 有多少问题要去面对
+
+有多少夜痛苦烦恼着你无法入睡…
+
+
+
+法庭严肃的空气逼得我快不能呼吸
+
+当时面临着终生监禁的我开始反省
+
+铁栏杆之后又是个截然不同的景象
+
+刑犯们眼神中看不到一点和平的气象
+
+仅有一寸短的铅笔写的是监狱风云
+
+日记上描绘的不是美好的户外风景
+
+自由在他们眼里才是憧憬
+
+放一把自制武器在枕头旁以防随时有人偷袭
+
+有些人怀疑老婆在外偷情
+
+有些人把家人寄来的信件一张一张好好收集
+
+有些人二十四小时几乎在床上休息
+
+有些人精神失常因为受不了打击
+
+
+
+三个月如火如荼的漫长等待已过去
+
+出狱后的我得面对三年的缓刑期
+
+这也好一生中第一次感觉到幸福
+
+但生命中的考验何止如此我不清楚
+
+我不知道接下来还有什么会发生
+
+翻开报纸的新闻又是看到放火杀人
+
+还记得某年无意间发现的照片
+
+上面有阿姨对男人施行口交的恶心画面
+
+这简直摧毁了她在我心目中的形象
+
+我无法忘怀照片中那笑容多么淫荡
+
+我抵抗胸口存在着不安及惶恐
+
+我不断听到痛苦的声音在内心怒吼
+
+
+
+life's a struggle 日子还要过
+
+品尝喜怒哀乐之后又是数不尽的troubles
+
+everyday 有多少问题要去面对
+
+有多少夜痛苦烦恼着你无法入睡…
+
+
+
+不论我走到天南不论我走到地北
+
+不论我走到哪都见识到人心的虚伪
+
+It's kinda funny 在人的眼里只有money
+
+外表好像要帮你却只是想帮他自己
+
+笑容可掬的脸后面谁知道是个狼心狗肺
+
+连朋友都能背叛因为只有名利合他口味
+
+她说她爱你的时候讲的是问心无愧
+
+搞不好她爱的是你身后的荣华富贵
+
+你可曾困惑在你身旁谁是敌是友
+
+对你落井下石的可能就是你的挚友
+
+你可曾经历当你最需要帮助的时候
+
+平常跟你称兄道弟的人都突然失踪
+
+
+
+亲爱的神伟大的神
+
+你可以怪我想法太过无知但我只是人
+
+我不信人因为人也不信我
+
+不要问我为什么我最多只能告诉你这就是我
+
+生命像海浪一样有时高有时低
+
+你是否告诉自己坚强渡过各种时期
+
+我从命运的天台放眼却看不到星空
+
+漆黑的天空压在头顶使我不得轻松
+
+在我心中找不到一个安静的角落
+
+
+
+我不能再沈睡下去良心彷佛在笑我
+
+它在说：有几天几夜老妈曾经为你以泪洗面
+
+老爸他只顾己见希望之火只见熄灭
+
+我接起电话是老爸憔悴的声音
+
+虽没见面却不难想像他当时的神情
+
+刚听完他最近失业的消息
+
+脑海里马上浮现祖母的话警告我一定要争气
+
+
+
+我已经放弃所有哭的理由
+
+因为我早就习惯冷漠活在无情的现实里头
+
+人生要如何起头？改变要如何起手？
+
+当活在泥沼中要如何才能金盆洗手？
+
+
+
+life's a struggle 日子还要过
+
+品尝喜怒哀乐之后又是数不尽的troubles
+
+everyday 有多少问题要去面对
+
+有多少夜痛苦烦恼着你无法入睡…
+</pre>]]></content:encoded>
+      <comments>http://emptyzone.github.io/Life/2011/01/26/angry-teens/#disqus_comments</comments>
+    </item>
+    
+  </channel>
+</rss>
