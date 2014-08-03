@@ -4,13 +4,24 @@
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta charset="UTF-8">
-    <title><%= config.title %><% if(!is_home()){ %> | <%= page.title %><% } %></title>
+<title>
+    <%= config.title %>
+    <% if(is_post()){ %>
+        | <%= page.title %>
+    <% } else if(page.category){ %>
+        | <%= page.category %>
+    <% } else if(is_tag()){ %>
+        | <%= page.tag %>
+    <% } %>
+</title>
 <% if (config.description){ %>
     <meta name="description" content="<%= config.description %>" />
 <%  } %>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,maximum-scale=1.0,user-scalable=no">
 <%- css('/css/style.css') %><%- css('/css/syntax.css') %>
-<link rel="alternate" type="application/rss+xml" title="feed" href=""/>
+<% if(config.feed){ %>
+    <link rel="alternate" type="application/rss+xml" title="feed" href="<%- url_for(config.feed.path) %>"/>
+<% } %>
 </head>
 
 <body>
