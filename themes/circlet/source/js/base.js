@@ -1,7 +1,6 @@
 var pjaxBinded = false;
 var ujian_config = {showType:0};
 var disqus_count_command;
-var disqus_embed_command;
 var ujian_command;
 var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
 jQuery(document).ready(function($){
@@ -29,12 +28,11 @@ function afterLoaded(){
         }
         
         if($('#disqus_thread').length){
-            if(disqus_embed_command){
-                eval(disqus_embed_command);
+            if(window.DISQUS){
+                DISQUS.reset({reload: true});
             }else{
                 $.getScript('http://' + disqus_shortname + '.disqus.com/embed.js',function(data){
-                            disqus_embed_command = data;
-                            eval(disqus_embed_command);
+                            eval(data);
                             });
             }
         }
