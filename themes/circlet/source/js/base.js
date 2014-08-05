@@ -47,6 +47,14 @@ function afterLoaded(){
                         });
         }
     }
+    causeGaCellection();
+}
+
+function causeGaCellection(){
+    if(window.ga){
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    }
 }
 
 function bindSlimBox(){

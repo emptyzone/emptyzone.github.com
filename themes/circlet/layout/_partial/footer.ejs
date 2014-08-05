@@ -6,8 +6,12 @@
 	</div>
 </div>
 <script type="text/javascript">
-    var disqus_shortname = '<%= config.disqus_shortname %>';
-    var ujian_uid = '<%= config.ujian_uid %>'
+    <% if(config.disqus_shortname){ %>
+        var disqus_shortname = '<%= config.disqus_shortname %>';
+    <% } %>
+    <% if(config.ujian_uid){ %>
+        var ujian_uid = '<%= config.ujian_uid %>'
+    <% } %>
 </script>
 <%- js('/js/jquery.min.js', '/js/base.js', '/js/sparkles.js') %>
 </body>
