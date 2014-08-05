@@ -7,6 +7,7 @@ categories :
 tags : 
 - Android
 - Camera
+
 ---
 在Android上实现一个简单能用的相机其实挺容易。谷歌随便搜一搜就有很多能用的Sample。当然就像谷歌能搜到的其他代码一样，这些Sample虽然能用但离好用还很远。
 

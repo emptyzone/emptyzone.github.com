@@ -4,6 +4,7 @@ title: 超越Instagram之路
 date : 2013-11-24
 categories : [Tech]
 tags : [Android, Camera, Instagram]
+
 ---
 在过去一年多的时间里，我和团队受Instagram的激励一起做了一个图片分享社区。所以同时我也对iOS和Android上的相机开发做了很多研究。我们认为我们产品里的相机在很多方面达到了与Instagram类似的标准，甚至有些方面要更优于它。
 
