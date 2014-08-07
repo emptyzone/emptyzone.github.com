@@ -11,14 +11,14 @@ var port = Number(process.env.PORT || 4000);
 
 app.use(bodyParser.json());
 app.get('/', function(req, res){
-            sys.puts('POST DATA NOT ACCEPTED');
+            sys.puts('ignore get method');
             res.send('success');
         });
 
 app.post('/', function(req, res){
+            sys.puts('post method');
             var data = req.body;
-            if(data.action == 'opened' &&
-               data.issue &&
+            if(data.issue &&
                data.issue.title &&
                data.issue.title.indexOf(issue_key_word) != -1 &&
                data.issue.user &&
@@ -27,14 +27,16 @@ app.post('/', function(req, res){
                data.repository &&
                data.repository.name &&
                data.repository.name == repository_name){
-                var respond = '';
-                exec('hexo migrate gist; hexo d; hexo clean;', function(error, stdout, stderr){
+                exec('hexo migrate gist; hexo d;', function(error, stdout, stderr){
+                        if(stderr){
+                            sys.puts(stderr);
+                        }
                         sys.puts(stdout);
-                        respond += stdout;
-                        res.send(respond);
                      });
+                res.send('building');
             }else{
                 res.send('not valid data');
+                sys.puts('not valid post');
             }
          });
 
