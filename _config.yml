@@ -89,6 +89,10 @@ ga_id: UA-53476461-1
 theme: circlet
 exclude_generator:
 
+#Migrator
+gist_migrator : 
+    gist_id : 37657e6aed5abc69fcec
+
 #rss
 feed:
     type: rss2

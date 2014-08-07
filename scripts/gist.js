@@ -1,31 +1,46 @@
-var github = require('octonode');
+var github = require('octonode'),
+    async = require('async');
 
-var gist_id = '37657e6aed5abc69fcec';
-var md_suffix = '.md';
+var gist_migrator = hexo.config.gist_migrator;
+var file_suffix = (gist_migrator && gist_migrator.file_suffix) ? gist_migrator.file_suffix : '.md';
 
 var log = hexo.log;
 var file = hexo.util.file2;
 var destDir = hexo.config.source_dir + '/_posts/';
 
+var config_lost_warn = '\ngist_migrator not configured.\nAdd\n    gist_migrator : \n    gist_id : your gist id\nto _config.yml';
+
 function gist(args, callback){
+    if(!gist_migrator || !gist_migrator.gist_id){
+        log.w(config_lost_warn);
+        callback();
+        return;
+    }
+    var gist_id = gist_migrator.gist_id;
     var gist = github.client().gist();
-    log.i("requesting gist api content");
+    log.i("requesting api content");
     gist.get(gist_id, function(err, body, headers){
                 if(!err){
                     var files = body.files;
-                    for(var fileName in files){
-                        if(fileName.indexOf(md_suffix, fileName.length - md_suffix.length) !== -1){
-                            var destFile = destDir + fileName;
-                            log.i('writing gist file to: ' + destFile);
-                            file.writeFile(destFile, files[fileName].content);
-                        }else{
-                            log.i('ignored gist file: ' + fileName);
-                        }
+                    var fileNames = [];
+                    for(var f in files){
+                        fileNames.push(f);
                     }
+                    async.each(fileNames, function(fileName, cb){
+                                    if(fileName.indexOf(file_suffix, fileName.length - file_suffix.length) !== -1){
+                                        log.i('writing to: ' + fileName);
+                                        file.writeFile(destDir + fileName, files[fileName].content, cb);
+                                    }else{
+                                        log.i('ignored: ' + fileName);
+                                        cb();
+                                    }
+                               }, function(err){
+                                    callback();
+                               });
                 }else{
-                    log.e('requesting gist api error');
+                    log.e('requesting api error');
+                    callback();
                 }
-                callback();
              });
 }
 
