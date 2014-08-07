@@ -1,1 +1,1 @@
-worker: npm install; hexo migrate gist; hexo g;
+web: npm install; node app.js;
