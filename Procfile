@@ -1,0 +1,1 @@
+worker: npm install; hexo migrate gist; hexo g;
