@@ -3,11 +3,11 @@ var user_name = 'emptyzone';
 var repository_name = 'emptyzone.github.com';
 
 var sys = require('sys'),
-    exec = require('child_process').exec;
-var express = require("express");
-var app = express();
+    hexo_init = require('./node_modules/hexo/lib/init');
+var app = require('express')();
 var bodyParser = require('body-parser');
 var port = Number(process.env.PORT || 4000);
+var cwd = process.cwd();
 
 app.use(bodyParser.json());
 app.get('/', function(req, res){
@@ -27,13 +27,8 @@ app.post('/', function(req, res){
                data.repository &&
                data.repository.name &&
                data.repository.name == repository_name){
-                exec('hexo migrate gist; hexo d;', function(error, stdout, stderr){
-                        if(stderr){
-                            sys.puts(stderr);
-                        }
-                        sys.puts(stdout);
-                     });
                 res.send('building');
+                build();
             }else{
                 res.send('not valid data');
                 sys.puts('not valid post');
@@ -43,3 +38,12 @@ app.post('/', function(req, res){
 app.listen(port, function(){
             sys.puts("listening to : " + port);
            });
+
+function build(){
+    hexo_init(cwd, {_ : ['migrate', 'gist']}, function(){
+              sys.puts('migrate from gist complete');
+              hexo.call('generate', function(){
+                            sys.puts('build finished');
+                        });
+         });
+}
