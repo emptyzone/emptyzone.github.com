@@ -5,8 +5,10 @@ var repository_name = 'emptyzone.github.com';
 var sys = require('sys'),
     exec = require('child_process').exec;
 var app = require('http').createServer(handler);
+var port = Number(process.env.PORT || 4000);
 
-app.listen(4000);
+sys.puts("listening to : " + port);
+app.listen(port);
 
 function handler (req, res) {
     if (req.method == "POST") {
@@ -15,7 +17,7 @@ function handler (req, res) {
                data += chunk;
             });
         req.on('end', function() {
-               console.log('Received body data:');
+               sys.puts('Received body data:');
                data = JSON.parse(data);
                if(data.action == 'opened' &&
                    data.issue &&
@@ -29,11 +31,11 @@ function handler (req, res) {
                    data.repository.name == repository_name){
                     exec('hexo migrate gist; hexo d; hexo clean;', puts);
                }else{
-                    console.log('POST DATA NOT ACCEPTED');
+                    sys.puts('POST DATA NOT ACCEPTED');
                }
             });
     }else{
-        console.log('ABORT GET REQUEST');
+        sys.puts('ABORT GET REQUEST');
     }
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write("success");
