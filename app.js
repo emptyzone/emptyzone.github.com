@@ -13,7 +13,7 @@ var app = require('express')();
 var bodyParser = require('body-parser');
 var port = Number(process.env.PORT || 4000);
 var cwd = process.cwd();
-var deploy_dir = '.deploy/';
+var posts_dir = '/_posts/';
 
 app.use(bodyParser.json());
 app.get('/', function(req, res){
@@ -69,7 +69,7 @@ function build(){
     hexo.call('migrate', {_ : ['issue']}, function(){
                     sys.puts('migrate from issue complete');
                     configureGit(function(){
-                                 hexo.util.file2.emptyDir(deploy_dir, function(){
+                                 hexo.util.file2.emptyDir(hexo.config.source_dir + posts_dir, function(){
                                                       sys.puts('start deploying');
                                                       hexo.call('deploy', {_ : ['-g']}, function(){
                                                                 sys.puts('deploy finished');
