@@ -6,13 +6,16 @@ var commit_name = 'songchenwen',
     commit_email = 'emptyzone.0@gmail.com';
 
 var sys = require('sys'),
+    fs = require('fs'),
     hexo_init = require('hexo').init,
     exec = require('child_process').exec;
+    rimrafSync = require('rimraf').sync;
 
 var app = require('express')();
 var bodyParser = require('body-parser');
 var port = Number(process.env.PORT || 4000);
 var cwd = process.cwd();
+var db_file = 'db.json';
 
 app.use(bodyParser.json());
 app.get('/', function(req, res){
@@ -65,6 +68,12 @@ function isValidData(data){
 
 function build(){
     sys.puts('build start');
+    if(fs.existsSync(db_file) && fs.statSync(db_file).isFile()){
+        fs.unlinkSync(db_file);
+    }
+    if(fs.existsSync(hexo.config.public_dir) && fs.statSync(hexo.config.public_dir).isDirectory()){
+        rimrafSync(hexo.config.public_dir);
+    }
     hexo.call('migrate', {_ : ['issue']}, function(){
               sys.puts('migrate from issue complete');
               configureGit(function(){
