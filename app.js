@@ -27,11 +27,11 @@ app.post('/', function(req, res){
             sys.puts('post method');
             var data = req.body;
             if(isValidData(data)){
-                res.send('building');
-                build();
+                output('building');
+                build(res);
             }else{
-                res.send('not valid data');
-                sys.puts('not valid post');
+                output(res, 'not valid post data');
+                output.end();
             }
          });
 
@@ -66,74 +66,64 @@ function isValidData(data){
     return false;
 }
 
-function build(){
+function build(res){
     if(isBuilding){
         sys.puts('Hexo is currently building, not gonna build again.');
         return;
     }
     isBuilding = true;
-    hexo.call('clean', {}, function(){
-              sys.puts('build start');
-              hexo.call('migrate', {_ : ['issue']}, function(){
-                        sys.puts('migrate from issue complete');
-                        configureGit(function(){
-                                     sys.puts('start deploying');
-                                     hexo.call('deploy', {_ : ['-g']},function(){
-                                               sys.puts('deploy finished');
-                                               hexo.call('clean', {}, function(){
-                                                    sys.puts('clean public dir');
-                                                    gitCommit(function(){
-                                                                isBuilding = false;
-                                                                sys.puts('ready for another deploy');
-                                                              });
-                                                    });
-                                               });
-                                     });
-                        });
-              });
-    
-}
-
-function gitCommit(callback){
-    var commands = [
-        ['add', '-A', '.'],
-        ['commit', '-m', 'migrate from issue commit']
-    ];
-    async.eachSeries(commands, function(item, next){
-                     run('git', item, function(code){
-                            if (code === 0) {
-                                next();
-                            }else{
-                                sys.puts('error migrate from issue commit, code : ' + code);
-                                callback();
-                            }
+    configureGit(res, function()){
+        var commands = [
+                        ['clean'],
+                        ['migrate', 'issue'],
+                        ['deploy', '-g'],
+                        ['clean']
+                        ];
+        async.eachSeries(commands, function(item, next){
+                         run('hexo', item, res, function(error){
+                             if(error){
+                             isBuilding = false;
+                             output(res, 'error: ' + error + ' command: hexo ' + item.join(' '));
+                             res.statusCode = 500;
+                             res.end();
+                             }else{
+                             next();
+                             }
+                             });
+                         }, function(){
+                         isBuilding = false;
+                         output(res, 'ready for another deploy');
+                         res.end();
                          });
-                     }, function(){
-                        callback();
-                     });
+    }
 }
 
-function configureGit(callback){
+function output(res, content){
+    sys.puts(content);
+    res.write(content);
+}
+
+function configureGit(res, callback){
     exec('sh /app/configure_git.sh', function(error, stdout, stderr){
             if(error){
-                sys.puts('configure git error: ' + stderr);
+                output(res, 'configure git error: ' + stderr);
                 isBuilding = false;
                 return;
             }
-            sys.puts(stdout);
+            output(res, stdout);
             callback();
          });
 }
 
-var run = function(command, args, callback){
+var run = function(command, args, res, callback){
     var cp = spawn(command, args, {});
     
     cp.stdout.on('data', function(data){
-                 process.stdout.write(data);
+                 output(res, data);
                  });
     
     cp.stderr.on('data', function(data){
-                 process.stderr.write(data);
+                 output(res, data);
                  });
     
     cp.on('close', callback);
