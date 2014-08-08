@@ -13,6 +13,7 @@ var app = require('express')();
 var bodyParser = require('body-parser');
 var port = Number(process.env.PORT || 4000);
 var cwd = process.cwd();
+var deploy_dir = '.deploy/';
 
 app.use(bodyParser.json());
 app.get('/', function(req, res){
@@ -68,10 +69,13 @@ function build(){
     hexo.call('migrate', {_ : ['issue']}, function(){
                     sys.puts('migrate from issue complete');
                     configureGit(function(){
-                                 sys.puts('start deploying');
-                                 hexo.call('deploy', function(){
-                                           sys.puts('deploy finished');
-                                           });
+                                 hexo.util.file2.emptyDir(deploy_dir, function(){
+                                                          sys.puts('start deploying');
+                                                          hexo.call('deploy', function(){
+                                                                    sys.puts('deploy finished');
+                                                                    });
+                                                        });
+                                 
                            });
               });
 }
