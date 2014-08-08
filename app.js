@@ -2,6 +2,9 @@ var issue_label = 'blog',
     sender_name = 'emptyzone',
     repository_name = 'emptyzone.github.com';
 
+var commit_name = 'songchenwen',
+    commit_email = 'emptyzone.0@gmail.com';
+
 var sys = require('sys'),
     hexo_init = require('hexo').init,
     exec = require('child_process').exec;
@@ -64,18 +67,38 @@ function build(){
     sys.puts('build start');
     hexo.call('migrate', {_ : ['issue']}, function(){
                     sys.puts('migrate from issue complete');
-                    exec('eval "$(ssh-agent -s)"; ssh-add',function(error, stdout, stderr){
-                            if(!error){
-                                sys.puts(stdout);
-                                sys.puts('start deploying');
-                                hexo.call('deploy', function(){
-                                   sys.puts('deploy finished');
-                                   });
-                            }else{
-                                sys.puts(stderr);
-                            }
-                         });
+                    configureGit(function(){
+                                 sys.puts('start deploying');
+                                 hexo.call('deploy', function(){
+                                           sys.puts('deploy finished');
+                                           });
+                           });
               });
+}
+
+function configureGit(callback){
+    exec('eval "$(ssh-agent -s)"', function(error, stdout, stderr){
+            if(error){
+                sys.puts(stderr);
+                return;
+            }
+            sys.puts(stdout);
+            exec('ssh-add ~/.ssh/id_rsa', function(error, stdout, stderr){
+                 if(error){
+                    sys.puts(stderr);
+                    return;
+                 }
+                 sys.puts(stdout);
+                 exec('git config --global user.name ' + commit_name + '; git config --global user.email ' + commit_email, function(error, stdout, stderr){
+                        if(error){
+                            sys.puts(stderr);
+                            return;
+                        }
+                        sys.puts(stdout);
+                        callback();
+                     });
+              });
+         });
 }
 
 hexo_init({command: 'version'}, function(){
