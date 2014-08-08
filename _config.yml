@@ -90,8 +90,12 @@ theme: circlet
 exclude_generator:
 
 #Migrator
-gist_migrator : 
-    gist_id : 37657e6aed5abc69fcec
+issue_migrator :
+    owner_name : emptyzone
+    repository_name : emptyzone.github.com
+    delete : false
+    label : blog
+    delete_closed : true
 
 #rss
 feed:

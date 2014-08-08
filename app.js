@@ -1,9 +1,8 @@
-var issue_key_word = 'Build';
-var user_name = 'emptyzone';
-var repository_name = 'emptyzone.github.com';
+var issue_label = 'blog',
+    repository_name = 'emptyzone.github.com';
 
 var sys = require('sys'),
-    hexo_init = require('./node_modules/hexo/lib/init');
+    hexo_init = require('hexo').init;
 var app = require('express')();
 var bodyParser = require('body-parser');
 var port = Number(process.env.PORT || 4000);
@@ -18,15 +17,7 @@ app.get('/', function(req, res){
 app.post('/', function(req, res){
             sys.puts('post method');
             var data = req.body;
-            if(data.issue &&
-               data.issue.title &&
-               data.issue.title.indexOf(issue_key_word) != -1 &&
-               data.issue.user &&
-               data.issue.user.login &&
-               data.issue.user.login == user_name &&
-               data.repository &&
-               data.repository.name &&
-               data.repository.name == repository_name){
+            if(isValidData(data)){
                 res.send('building');
                 build();
             }else{
@@ -35,15 +26,45 @@ app.post('/', function(req, res){
             }
          });
 
-app.listen(port, function(){
-            sys.puts("listening to : " + port);
-           });
+function isValidData(data){
+    if(data.issue &&
+       data.repository &&
+       data.repository.name &&
+       data.repository.name == repository_name && ){
+        if(data.action){
+            var action = data.action;
+            if(action == 'labeled' || action == 'unlabeled'){
+                if(data.label && data.label == issue_label){
+                    return true;
+                }
+            }
+            if(action == 'opened' || action == 'reopened' || action == 'closed'){
+                var labels = data.issue.labels;
+                if(labels){
+                    for(var item in labels){
+                        if(item.name && item.name == issue_label){
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    return false;
+}
 
 function build(){
-    hexo_init(cwd, {_ : ['migrate', 'gist']}, function(){
-              sys.puts('migrate from gist complete');
-              hexo.call('generate', function(){
-                            sys.puts('build finished');
+    hexo.call('migrate', 'issue', function(){
+                    sys.puts('migrate from issue complete');
+                    hexo.call('generate', function(){
+                        sys.puts('build finished');
                         });
-         });
+              });
 }
+
+hexo_init({command: 'version'}, function(){
+            app.listen(port, function(){
+                     sys.puts("listening to : " + port);
+                     });
+          });
