@@ -1,4 +1,5 @@
 var issue_label = 'blog',
+    sender_name = 'emptyzone',
     repository_name = 'emptyzone.github.com';
 
 var sys = require('sys'),
@@ -30,7 +31,10 @@ function isValidData(data){
     if(data.issue &&
        data.repository &&
        data.repository.name &&
-       data.repository.name == repository_name && ){
+       data.repository.name == repository_name &&
+       data.sender &&
+       data.sender.login &&
+       data.sender.login == sender_name){
         if(data.action){
             var action = data.action;
             if(action == 'labeled' || action == 'unlabeled'){
@@ -57,8 +61,8 @@ function isValidData(data){
 function build(){
     hexo.call('migrate', 'issue', function(){
                     sys.puts('migrate from issue complete');
-                    hexo.call('generate', function(){
-                        sys.puts('build finished');
+                    hexo.call('deploy', function(){
+                        sys.puts('deploy finished');
                         });
               });
 }

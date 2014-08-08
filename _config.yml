@@ -93,9 +93,9 @@ exclude_generator:
 issue_migrator :
     owner_name : emptyzone
     repository_name : emptyzone.github.com
-    delete : false
     label : blog
-    delete_closed : true
+    clean : false
+    including_closed : false
 
 #rss
 feed:
