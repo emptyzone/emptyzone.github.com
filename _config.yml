@@ -94,7 +94,7 @@ issue_migrator :
     owner_name : emptyzone
     repository_name : emptyzone.github.com
     label : blog
-    clean : false
+    clean : true
     including_closed : false
 
 #rss
