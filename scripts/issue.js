@@ -1,7 +1,7 @@
 var github = require('octonode'),
     async = require('async');
 
-var issue_count_per_page = 1, current_page_index = 1;
+var issue_count_per_page = 20, current_page_index = 1;
 var issue_migrator_running = false;
 
 var issue_migrator = hexo.config.issue_migrator;
