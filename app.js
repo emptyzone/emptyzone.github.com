@@ -67,22 +67,19 @@ function isValidData(data){
 }
 
 function build(){
-    sys.puts('build start');
-    if(fs.existsSync(db_file) && fs.statSync(db_file).isFile()){
-        fs.unlinkSync(db_file);
-    }
-    if(fs.existsSync(hexo.config.public_dir) && fs.statSync(hexo.config.public_dir).isDirectory()){
-        rimrafSync(hexo.config.public_dir);
-    }
-    hexo.call('migrate', {_ : ['issue']}, function(){
-              sys.puts('migrate from issue complete');
-              configureGit(function(){
-                           sys.puts('start deploying');
-                           hexo.call('deploy', {_ : ['-g']}, function(){
-                                     sys.puts('deploy finished');
+    hexo.call('clean', function(){
+              sys.puts('build start');
+              hexo.call('migrate', {_ : ['issue']}, function(){
+                        sys.puts('migrate from issue complete');
+                        configureGit(function(){
+                                     sys.puts('start deploying');
+                                     hexo.call('deploy', {_ : ['-g']}, function(){
+                                               sys.puts('deploy finished');
+                                               });
                                      });
-                           });
+                        });
               });
+    
 }
 
 function configureGit(callback){
