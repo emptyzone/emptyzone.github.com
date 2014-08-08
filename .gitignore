@@ -2,3 +2,4 @@ db.json
 public
 node_modules
 debug.log
+.deploy
