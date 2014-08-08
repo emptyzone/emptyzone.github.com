@@ -27,7 +27,7 @@ app.post('/', function(req, res){
             sys.puts('post method');
             var data = req.body;
             if(isValidData(data)){
-                output('building');
+                output(res, 'building');
                 build(res);
             }else{
                 output(res, 'not valid post data');
@@ -68,7 +68,7 @@ function isValidData(data){
 
 function build(res){
     if(isBuilding){
-        output('Hexo is currently building, not gonna build again.');
+        output(res, 'Hexo is currently building, not gonna build again.');
         return;
     }
     isBuilding = true;
