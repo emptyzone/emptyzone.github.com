@@ -3,7 +3,9 @@ var issue_label = 'blog',
     repository_name = 'emptyzone.github.com';
 
 var sys = require('sys'),
-    hexo_init = require('hexo').init;
+    hexo_init = require('hexo').init,
+    exec = require('child_process').exec;
+
 var app = require('express')();
 var bodyParser = require('body-parser');
 var port = Number(process.env.PORT || 4000);
@@ -62,9 +64,17 @@ function build(){
     sys.puts('build start');
     hexo.call('migrate', {_ : ['issue']}, function(){
                     sys.puts('migrate from issue complete');
-                    hexo.call('deploy', function(){
-                        sys.puts('deploy finished');
-                        });
+                    exec('eval "$(ssh-agent -s)"; ssh-add',function(error, stdout, stderr){
+                            if(!error){
+                                sys.puts(stdout);
+                                sys.puts('start deploying');
+                                hexo.call('deploy', function(){
+                                   sys.puts('deploy finished');
+                                   });
+                            }else{
+                                sys.puts(stderr);
+                            }
+                         });
               });
 }
 
