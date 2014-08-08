@@ -80,9 +80,14 @@ function build(){
                                      sys.puts('start deploying');
                                      hexo.call('deploy', function(){
                                                sys.puts('deploy finished');
-                                                    hexo.call('clean', {}, function(){
-                                                              isBuilding = false;
-                                                         });
+                                               hexo.util.file2.emptyDir('.deploy',function(){
+                                                                        sys.puts('clean deploy dir');
+                                                                        hexo.call('clean', {}, function(){
+                                                                                  sys.puts('clean public dir');
+                                                                                  isBuilding = false;
+                                                                                  sys.puts('ready for another deploy');
+                                                                                  });
+                                                                        });
                                                });
                                      });
                         });
@@ -104,6 +109,7 @@ function configureGit(callback){
 
 hexo_init({command: 'version'}, function(){
             app.listen(port, function(){
+                       isBuilding = false;
                        sys.puts("listening to : " + port);
                        build();
                      });
