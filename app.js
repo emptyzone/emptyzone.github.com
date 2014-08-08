@@ -59,6 +59,7 @@ function isValidData(data){
 }
 
 function build(){
+    sys.puts('build start');
     hexo.call('migrate', 'issue', function(){
                     sys.puts('migrate from issue complete');
                     hexo.call('deploy', function(){
