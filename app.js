@@ -15,6 +15,7 @@ var bodyParser = require('body-parser');
 var port = Number(process.env.PORT || 4000);
 var cwd = process.cwd();
 var db_file = 'db.json';
+var isBuilding = false;
 
 app.use(bodyParser.json());
 app.get('/', function(req, res){
@@ -66,6 +67,11 @@ function isValidData(data){
 }
 
 function build(){
+    if(isBuilding){
+        sys.puts('Hexo is currently building, not gonna build again.');
+        return;
+    }
+    isBuilding = true;
     hexo.call('clean', {}, function(){
               sys.puts('build start');
               hexo.call('migrate', {_ : ['issue']}, function(){
@@ -74,6 +80,9 @@ function build(){
                                      sys.puts('start deploying');
                                      hexo.call('deploy', function(){
                                                sys.puts('deploy finished');
+                                                    hexo.call('clean', {}, function(){
+                                                              isBuilding = false;
+                                                         });
                                                });
                                      });
                         });
@@ -84,7 +93,8 @@ function build(){
 function configureGit(callback){
     exec('sh /app/configure_git.sh', function(error, stdout, stderr){
             if(error){
-                sys.puts('error: ' + stderr);
+                sys.puts('configure git error: ' + stderr);
+                isBuilding = false;
                 return;
             }
             sys.puts(stdout);
