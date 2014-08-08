@@ -90,6 +90,5 @@ function configureGit(callback){
 hexo_init({command: 'version'}, function(){
             app.listen(port, function(){
                      sys.puts("listening to : " + port);
-                       build();
                      });
           });
