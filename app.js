@@ -70,9 +70,11 @@ function build(){
                     sys.puts('migrate from issue complete');
                     configureGit(function(){
                                  hexo.util.file2.emptyDir(deploy_dir, function(){
-                                                          sys.puts('start deploying');
-                                                          hexo.call('deploy', function(){
-                                                                    sys.puts('deploy finished');
+                                                          hexo.call('clean', function(){
+                                                                        sys.puts('start deploying');
+                                                                        hexo.call('deploy', function(){
+                                                                              sys.puts('deploy finished');
+                                                                              });
                                                                     });
                                                         });
                                  
