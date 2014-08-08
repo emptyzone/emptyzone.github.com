@@ -72,30 +72,31 @@ function build(res){
         return;
     }
     isBuilding = true;
-    configureGit(res, function()){
-        var commands = [
-                        ['clean'],
-                        ['migrate', 'issue'],
-                        ['deploy', '-g'],
-                        ['clean']
-                        ];
-        async.eachSeries(commands, function(item, next){
-                         run('hexo', item, res, function(error){
-                             if(error){
-                             isBuilding = false;
-                             output(res, 'error: ' + error + ' command: hexo ' + item.join(' '));
-                             res.statusCode = 500;
-                             res.end();
-                             }else{
-                             next();
-                             }
-                             });
-                         }, function(){
-                         isBuilding = false;
-                         output(res, 'ready for another deploy');
-                         res.end();
-                         });
-    }
+    configureGit(res, function(){
+                 var commands = [
+                                                 ['clean'],
+                                                 ['migrate', 'issue'],
+                                                 ['deploy', '-g'],
+                                                 ['clean']
+                                                 ];
+                 async.eachSeries(commands, function(item, next){
+                                  run('hexo', item, res, function(error){
+                                      if(error){
+                                      isBuilding = false;
+                                      output(res, 'error: ' + error + ' command: hexo ' + item.join(' '));
+                                      res.statusCode = 500;
+                                      res.end();
+                                      }else{
+                                      next();
+                                      }
+                                      });
+                                  }, function(){
+                                  isBuilding = false;
+                                  output(res, 'ready for another deploy');
+                                  res.end();
+                                  });
+        
+                 });
 }
 
 function output(res, content){
