@@ -94,6 +94,7 @@ issue_migrator :
     owner_name : emptyzone
     repository_name : emptyzone.github.com
     label : blog
+    issue_count_per_page : 20
     clean : true
     including_closed : false
 

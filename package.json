@@ -9,9 +9,9 @@
     "hexo": "^2.8.2",
     "hexo-generator-feed": "^0.2.0",
     "hexo-generator-sitemap": "^0.2.0",
+    "hexo-migrator-issue": "^0.0.2",
     "hexo-renderer-ejs": "*",
     "hexo-renderer-marked": "*",
-    "hexo-renderer-stylus": "*",
-    "octonode": "^0.6.4"
+    "hexo-renderer-stylus": "*"
   }
 }

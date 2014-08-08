@@ -75,11 +75,11 @@ function build(res){
     sys.puts('begin buiding');
     configureGit(res, function(){
                  var commands = [
-                                                 ['clean'],
-                                                 ['migrate', 'issue'],
-                                                 ['deploy', '-g'],
-                                                 ['clean']
-                                                 ];
+                            ['clean'],
+                            ['migrate', 'issue'],
+                            ['deploy', '-g'],
+                            ['clean']
+                        ];
                  async.eachSeries(commands, function(item, next){
                                   run('hexo', item, res, function(error){
                                       if(error){
