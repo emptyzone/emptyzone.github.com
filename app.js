@@ -68,10 +68,11 @@ function isValidData(data){
 
 function build(res){
     if(isBuilding){
-        sys.puts('Hexo is currently building, not gonna build again.');
+        output('Hexo is currently building, not gonna build again.');
         return;
     }
     isBuilding = true;
+    sys.puts('begin buiding');
     configureGit(res, function(){
                  var commands = [
                                                  ['clean'],
@@ -101,7 +102,9 @@ function build(res){
 
 function output(res, content){
     sys.puts(content);
-    res.write(content);
+    if(res){
+        res.write(content);
+    }
 }
 
 function configureGit(res, callback){
@@ -134,6 +137,6 @@ hexo_init({command: 'version'}, function(){
             app.listen(port, function(){
                        isBuilding = false;
                        sys.puts("listening to : " + port);
-                       build();
+                       build(null);
                      });
           });
