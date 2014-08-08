@@ -72,7 +72,7 @@ function build(){
                         sys.puts('migrate from issue complete');
                         configureGit(function(){
                                      sys.puts('start deploying');
-                                     hexo.call('deploy', {_ : ['-g']}, function(){
+                                     hexo.call('deploy', function(){
                                                sys.puts('deploy finished');
                                                });
                                      });
