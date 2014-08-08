@@ -65,18 +65,15 @@ function isValidData(data){
 
 function build(){
     sys.puts('build start');
-    hexo.call('clean', function(){
-            hexo.call('migrate', {_ : ['issue']}, function(){
-                    sys.puts('migrate from issue complete');
-                    configureGit(function(){
-                        sys.puts('start deploying');
-                        hexo.call('deploy', {_ : ['-g']}, function(){
-                                sys.puts('deploy finished');
-                            });
-                    });
-                                 
-            });
-    });
+    hexo.call('migrate', {_ : ['issue']}, function(){
+              sys.puts('migrate from issue complete');
+              configureGit(function(){
+                           sys.puts('start deploying');
+                           hexo.call('deploy', {_ : ['-g']}, function(){
+                                     sys.puts('deploy finished');
+                                     });
+                           });
+              });
 }
 
 function configureGit(callback){
