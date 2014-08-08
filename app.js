@@ -79,19 +79,19 @@ function build(){
 function configureGit(callback){
     exec('eval "$(ssh-agent -s)"', function(error, stdout, stderr){
             if(error){
-                sys.puts(stderr);
+                sys.puts('error: ' + stderr);
                 return;
             }
             sys.puts(stdout);
-            exec('ssh-add ~/.ssh/id_rsa', function(error, stdout, stderr){
+            exec('ssh-add /app/.ssh/id_rsa', function(error, stdout, stderr){
                  if(error){
-                    sys.puts(stderr);
+                    sys.puts('error: ' + stderr);
                     return;
                  }
                  sys.puts(stdout);
                  exec('git config --global user.name ' + commit_name + '; git config --global user.email ' + commit_email, function(error, stdout, stderr){
                         if(error){
-                            sys.puts(stderr);
+                            sys.puts('error: ' + stderr);
                             return;
                         }
                         sys.puts(stdout);
@@ -104,5 +104,6 @@ function configureGit(callback){
 hexo_init({command: 'version'}, function(){
             app.listen(port, function(){
                      sys.puts("listening to : " + port);
+                       build();
                      });
           });
