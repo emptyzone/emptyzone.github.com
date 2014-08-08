@@ -9,7 +9,6 @@ var sys = require('sys'),
     fs = require('fs'),
     hexo_init = require('hexo').init,
     exec = require('child_process').exec;
-    rimrafSync = require('rimraf').sync;
 
 var app = require('express')();
 var bodyParser = require('body-parser');
