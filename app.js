@@ -80,17 +80,11 @@ function build(){
                                      sys.puts('start deploying');
                                      hexo.call('deploy', {_ : ['-g']},function(){
                                                sys.puts('deploy finished');
-                                               hexo.util.file2.rmdir('.deploy', function(err){
-                                                                        if(err){
-                                                                            sys.puts('\n\ndelete deploy dir error\n\n');
-                                                                        }
-                                                                        sys.puts('clean deploy dir');
-                                                                        hexo.call('clean', {}, function(){
-                                                                                  sys.puts('clean public dir');
-                                                                                  isBuilding = false;
-                                                                                  sys.puts('ready for another deploy');
-                                                                                  });
-                                                                        });
+                                               hexo.call('clean', {}, function(){
+                                                    sys.puts('clean public dir');
+                                                    isBuilding = false;
+                                                    sys.puts('ready for another deploy');
+                                                    });
                                                });
                                      });
                         });
