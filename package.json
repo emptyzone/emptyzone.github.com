@@ -12,7 +12,6 @@
     "hexo-renderer-ejs": "*",
     "hexo-renderer-marked": "*",
     "hexo-renderer-stylus": "*",
-    "octonode": "^0.6.4",
-    "rimraf": "^2.2.8"
+    "octonode": "^0.6.4"
   }
 }
