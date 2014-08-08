@@ -38,7 +38,7 @@ function isValidData(data){
         if(data.action){
             var action = data.action;
             if(action == 'labeled' || action == 'unlabeled'){
-                if(data.label && data.label == issue_label){
+                if(data.label && data.label.name && data.label.name == issue_label){
                     return true;
                 }
             }
