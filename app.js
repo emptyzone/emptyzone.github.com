@@ -50,8 +50,8 @@ function isValidData(data){
             if(action == 'opened' || action == 'reopened' || action == 'closed'){
                 var labels = data.issue.labels;
                 if(labels){
-                    for(var item in labels){
-                        if(item.name && item.name == issue_label){
+                    for(var i = 0; i < labels.length; i++){
+                        if(labels[i] && labels[i].name && labels[i].name == issue_label){
                             return true;
                         }
                     }
