@@ -80,7 +80,10 @@ function build(){
                                      sys.puts('start deploying');
                                      hexo.call('deploy', function(){
                                                sys.puts('deploy finished');
-                                               hexo.util.file2.emptyDir('.deploy',function(){
+                                               hexo.util.file2.rmdir('.deploy', function(err){
+                                                                        if(err){
+                                                                            sys.puts('\n\ndelete deploy dir error\n\n');
+                                                                        }
                                                                         sys.puts('clean deploy dir');
                                                                         hexo.call('clean', {}, function(){
                                                                                   sys.puts('clean public dir');
