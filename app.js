@@ -6,15 +6,15 @@ var commit_name = 'songchenwen',
     commit_email = 'emptyzone.0@gmail.com';
 
 var sys = require('sys'),
-    fs = require('fs'),
     hexo_init = require('hexo').init,
-    exec = require('child_process').exec;
+    async = require('async'),
+    child_process = require('child_process'),
+    exec = child_process.exec,
+    spawn = child_process.spawn;
 
 var app = require('express')();
 var bodyParser = require('body-parser');
 var port = Number(process.env.PORT || 4000);
-var cwd = process.cwd();
-var db_file = 'db.json';
 var isBuilding = false;
 
 app.use(bodyParser.json());
@@ -82,14 +82,35 @@ function build(){
                                                sys.puts('deploy finished');
                                                hexo.call('clean', {}, function(){
                                                     sys.puts('clean public dir');
-                                                    isBuilding = false;
-                                                    sys.puts('ready for another deploy');
+                                                    gitCommit(function(){
+                                                                isBuilding = false;
+                                                                sys.puts('ready for another deploy');
+                                                              });
                                                     });
                                                });
                                      });
                         });
               });
     
+}
+
+function gitCommit(callback){
+    var commands = [
+        ['add', '-A', '.'],
+        ['commit', '-m', 'migrate from issue commit']
+    ];
+    async.eachSeries(commands, function(item, next){
+                     run('git', item, function(code){
+                            if (code === 0) {
+                                next();
+                            }else{
+                                sys.puts('error migrate from issue commit, code : ' + code);
+                                callback();
+                            }
+                         });
+                     }, function(){
+                        callback();
+                     });
 }
 
 function configureGit(callback){
@@ -103,6 +124,20 @@ function configureGit(callback){
             callback();
          });
 }
+
+var run = function(command, args, callback){
+    var cp = spawn(command, args, {});
+    
+    cp.stdout.on('data', function(data){
+                 process.stdout.write(data);
+                 });
+    
+    cp.stderr.on('data', function(data){
+                 process.stderr.write(data);
+                 });
+    
+    cp.on('close', callback);
+};
 
 hexo_init({command: 'version'}, function(){
             app.listen(port, function(){
