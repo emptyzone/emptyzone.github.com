@@ -119,7 +119,8 @@ function configureGit(res, callback){
     if(commit_email){
         commands.push('git config --global user.email ' + commit_email);
     }
-    commands.push('eval "$(ssh-agent -s)";ssh-add .ssh/id_rsa');
+    commands.push('eval "$(ssh-agent -s)"');
+    commands.push('ssh-add .ssh/id_rsa');
     async.eachSeries(commands, function(command, next){
                      exec(command, function(error, stdout, stderr){
                           if(error){
