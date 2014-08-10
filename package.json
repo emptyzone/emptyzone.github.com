@@ -1,6 +1,6 @@
 {
   "name": "GaryBlog",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "private": true,
   "dependencies": {
     "async": "^0.9.0",

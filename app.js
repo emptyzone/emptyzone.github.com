@@ -1,9 +1,4 @@
-var issue_label = 'blog',
-    sender_name = 'emptyzone',
-    repository_name = 'emptyzone.github.com';
-
-var commit_name = 'songchenwen',
-    commit_email = 'emptyzone.0@gmail.com';
+var issue_label, sender_name, repository_name, commit_name, commit_email;
 
 var sys = require('sys'),
     hexo_init = require('hexo').init,
@@ -39,23 +34,31 @@ function isValidData(data){
     if(data.issue &&
        data.repository &&
        data.repository.name &&
-       data.repository.name == repository_name &&
-       data.sender &&
-       data.sender.login &&
-       data.sender.login == sender_name){
-        if(data.action){
-            var action = data.action;
-            if(action == 'labeled' || action == 'unlabeled'){
-                if(data.label && data.label.name && data.label.name == issue_label){
-                    return true;
+       data.repository.name == repository_name){
+        if(!sender_name || (
+           data.sender &&
+           data.sender.login &&
+           data.sender.login == sender_name)){
+            if(data.action){
+                var action = data.action;
+                if(action == 'labeled' || action == 'unlabeled'){
+                    if(!issue_label){
+                        return true;
+                    }
+                    if(data.label && data.label.name && data.label.name == issue_label){
+                        return true;
+                    }
                 }
-            }
-            if(action == 'opened' || action == 'reopened' || action == 'closed'){
-                var labels = data.issue.labels;
-                if(labels){
-                    for(var i = 0; i < labels.length; i++){
-                        if(labels[i] && labels[i].name && labels[i].name == issue_label){
-                            return true;
+                if(action == 'opened' || action == 'reopened' || action == 'closed'){
+                    if(!issue_label){
+                        return true;
+                    }
+                    var labels = data.issue.labels;
+                    if(labels){
+                        for(var i = 0; i < labels.length; i++){
+                            if(labels[i] && labels[i].name && labels[i].name == issue_label){
+                                return true;
+                            }
                         }
                     }
                 }
@@ -134,9 +137,28 @@ var run = function(command, args, res, callback){
 };
 
 hexo_init({command: 'version'}, function(){
-            app.listen(port, function(){
-                       isBuilding = false;
-                       sys.puts("listening to : " + port);
-                       build(null);
-                     });
+            if(hexo && hexo.config){
+                var issue_migrator = hexo.config.issue_migrator;
+                var heroku_auto_publisher = hexo.config.heroku_auto_publisher;
+                var owner_name;
+                if(issue_migrator){
+                    issue_label = issue_migrator.label;
+                    repository_name = issue_migrator.repository_name;
+                    owner_name = issue_migrator.owner_name;
+                }
+                if(heroku_auto_publisher){
+                    sender_name = heroku_auto_publisher.sender_name;
+                    commit_name = heroku_auto_publisher.commit_user_name;
+                    commit_email = heroku_auto_publisher.commit_user_email;
+                }
+                if(owner_name && repository_name){
+                    app.listen(port, function(){
+                               isBuilding = false;
+                               sys.puts("listening to : " + port);
+                               build(null);
+                               });
+                }else{
+                    sys.puts('lack of config');
+                }
+            }
           });

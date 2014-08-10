@@ -21,7 +21,6 @@ category_dir: /
 code_dir: downloads/code
 permalink_defaults:
 
-
 # Directory
 source_dir: source
 public_dir: public
@@ -98,6 +97,11 @@ issue_migrator :
     issue_count_per_page : 20
     clean : true
     including_closed : false
+
+heroku_auto_publisher :
+    sender_name : emptyzone
+    commit_user_name : songchenwen
+    commit_user_email : emptyzone.0@gmail.com
 
 #rss
 feed:
