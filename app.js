@@ -72,6 +72,7 @@ function isValidData(data){
 function build(res){
     if(isBuilding){
         output(res, 'Hexo is currently building, not gonna build again.');
+        res.end();
         return;
     }
     isBuilding = true;
@@ -111,15 +112,40 @@ function output(res, content){
 }
 
 function configureGit(res, callback){
-    exec('sh /app/configure_git.sh', function(error, stdout, stderr){
-            if(error){
-                output(res, 'configure git error: ' + stderr);
-                isBuilding = false;
-                return;
-            }
-            output(res, stdout);
-            callback();
-         });
+    var commands = [];
+    if(commit_name){
+        commands.push('git config --global user.name ' + commit_name);
+    }
+    if(commit_email){
+        commands.push('git config --global user.email ' + commit_email);
+    }
+    commands.push('eval "$(ssh-agent -s)"');
+    commands.push('ssh-add .ssh/id_rsa');
+    async.eachSeries(commands, function(command, next){
+                     exec(command, function(error, stdout, stderr){
+                          if(error){
+                            output(res, 'configure git error: ' + error + '\n' + stderr);
+                            if(res){
+                                res.statusCode = 500;
+                                res.end();
+                            }
+                            isBuilding = false;
+                          }else{
+                            next();
+                          }
+                          });
+                     }, function(error){
+                        if(error){
+                            output(res, 'configure git error: ' + error + '\n' + stderr);
+                            if(res){
+                                res.statusCode = 500;
+                                res.end();
+                            }
+                            isBuilding = false;
+                        }else{
+                            callback(error);
+                        }
+                     });
 }
 
 var run = function(command, args, res, callback){
@@ -158,7 +184,7 @@ hexo_init({command: 'version'}, function(){
                                build(null);
                                });
                 }else{
-                    sys.puts('lack of config');
+                    sys.puts('lack of config\nCheck details at:\n   http://emptyzone.github.io');
                 }
             }
           });
