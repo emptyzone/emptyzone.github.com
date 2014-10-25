@@ -11,7 +11,7 @@ after_success:
   - "mkdir -p git_deploy"
   - "cd git_deploy"
   - "rm -rf ./*"
-  - "git clone --depth=50 --branch=master https://$GH_TOKEN@github.com/emptyzone/emptyzone.github.com.git"
+  - "git clone --depth=50 --branch=master https://$GH_TOKEN@github.com/emptyzone/emptyzone.github.com.git ."
   - "rm -rf ./*"
   - "cp -r ../public/* ./"
   - "git config --global push.default simple"
