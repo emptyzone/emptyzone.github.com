@@ -143,10 +143,13 @@ function calculateTime(){
     if($dates){
         $dates.each(function(i, d){
             var $d = $(d);
-            var m = moment(new Date($d.html()));
-            if(m){
-                $d.html(m.fromNow());
-            }
+            var date = $d.data('date');
+            if(date){
+                var m = moment(new Date(date));
+                if(m){
+                    $d.html(m.fromNow());
+                }
+            } 
         });
     }
 }
