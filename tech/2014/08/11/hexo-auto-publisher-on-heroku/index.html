@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8">
+<title>
+    Gary Blog
+    
+        | 利用Github和Heroku远程发表Hexo文章
+    
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,maximum-scale=1.0,user-scalable=no">
+<meta name="ujianVerification" content="0dfb3519c32c9f5c5622723c95fdb144" />
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+<link rel="stylesheet" href="/css/syntax.css" type="text/css">
+
+
+    <link rel="alternate" type="application/rss+xml" title="feed" href="/feed.xml"/>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53476461-1', 'auto');
+    ga('require', 'displayfeatures');
+    ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+<div id="background"></div>
+<div id="container">
+	<div id="header">
+		<a class="title" href="/" title="Gary Blog">
+			
+            <span class="title">Gary</span><span class="title">Blog</span>
+		</a>
+		<div id="nav">
+			
+<ul>
+    
+    <li class="menu-item current-menu-item"><a href="/tech/" rel="category" >Tech</a></li><li class="menu-item"><a href="/life/" rel="category" >Life</a></li><li class="menu-item"><a href="/read/" rel="category" >Read</a></li>
+    
+    <li class="menu-item"><a href="/feed.xml" target="_blank">Feed</a></li>
+    
+</ul>
+		</div>
+	</div>
+	<div id="content">
+	
+    
+<div class="post">
+	<p class="category">Tech</p>
+	<h2><a href="/tech/2014/08/11/hexo-auto-publisher-on-heroku/" title="利用Github和Heroku远程发表Hexo文章">利用Github和Heroku远程发表Hexo文章</a></h2>
+	<div class="date">2 months ago</div>
+	<div class="postContent"><p>使用<a href="http://hexo.io" target="_blank" rel="external">Hexo</a>这种静态博客程序搭建博客时，始终会遇到一个问题，要写博客就必须有一台环境配置好的电脑才行。想用手机和平板发文章，就会遇到各种问题。</p>
+<p>看到了<a href="http://kywk.github.io/" target="_blank" rel="external">Yu-Zhi Chen</a>的<a href="http://kywk.github.io/hexo-migrator-dropbox/" target="_blank" rel="external">hexo-migrator-dropbox</a>，但苦于地域限制，很难发挥它的作用。</p>
+<p>于是开发了<a href="https://github.com/songchenwen/hexo-migrator-issue" target="_blank" rel="external">hexo-migrator-issue</a>和<a href="https://github.com/songchenwen/hexo-heroku-auto-publisher" target="_blank" rel="external">hexo-heroku-auto-publisher</a>，顺便为最近要开始的前端项目练练手。这两个插件配合<a href="http://heroku.com" target="_blank" rel="external">Heroku</a>和Github issues提供的免费服务，即可实现远程发表<a href="http://hexo.io" target="_blank" rel="external">Hexo</a>文章的功能。</p>
+<p>以下步骤基于已搭建好<a href="http://hexo.io" target="_blank" rel="external">Hexo</a>环境并且有Github Pages项目的前提。</p>
+<a id="more"></a>
+
+<h1 id="准备项目">准备项目</h1>
+<h3 id="安装hexo-heroku-auto-publisher">安装<a href="https://github.com/songchenwen/hexo-heroku-auto-publisher" target="_blank" rel="external">hexo-heroku-auto-publisher</a></h3>
+<p>在Hexo项目目录下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo install hexo-heroku-auto-publisher --save</div></pre></td></tr></table></figure>
+
+<p>这个插件不需要配置，它的作用就是在你的项目里添加一些上传到<a href="http://heroku.com" target="_blank" rel="external">Heroku</a>时所需要的文件。</p>
+<h3 id="转换项目">转换项目</h3>
+<p>安装好<a href="https://github.com/songchenwen/hexo-heroku-auto-publisher" target="_blank" rel="external">hexo-heroku-auto-publisher</a>后，在<a href="http://hexo.io" target="_blank" rel="external">Hexo</a>项目目录下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo mp</div></pre></td></tr></table></figure>
+
+<p>等执行完成后你会看到自己的项目里多出了<code>app.js</code>和<code>Procfile</code>这两个文件。如果你能看到隐藏文件的话还会看到<code>.ssh</code>文件夹合理面包含的三个文件。</p>
+<p>让我们看看刚才这个命令的执行过程中都发生了什么：</p>
+<ul>
+<li>下载了<code>app.js</code>，<code>Procfile</code>，<code>.ssh/known_hosts</code>这三个文件</li>
+<li>为你生成了一个新的ssh key，用来给<a href="http://heroku.com" target="_blank" rel="external">Heroku</a>向你的<a href="https://github.com" target="_blank" rel="external">Github</a>项目提交内容的权限。</li>
+<li>为你安装了<a href="https://github.com/songchenwen/hexo-migrator-issue" target="_blank" rel="external">hexo-migrator-issue</a>插件</li>
+<li>为你的项目添加了<code>async</code>，<code>body-parser</code>，<code>express</code>，<code>hexo</code>这四个依赖。</li>
+</ul>
+<h3 id="保存ssh_key">保存ssh key</h3>
+<p>在刚才转换项目的过程中，有一段输出是值得我们注意的。类似下面这样。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Add the following ssh key to https://github.com/settings/ssh </div><div class="line"></div><div class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAOJXk9uTTwEGw89pET3X7C5ZQSZ76ENNYuamoO+AhMO3xlommwuqFzkKZX7ijWVAhaJ6dfuetpSFVAiSLQsHaEWH/ZLzLD9h+grhrkuk/wUyArn8IXe7hwTKl6fbTzrnZpY8I9FrQOk72cGiq82oLnBpnA1DIHvAQL1c/oIBZpZXWni70N1AOJ5qw4s9H2lqK7p53JLWtx/dEZtBCIvcSCqDrZpVgwQPgzfIdbaD2aB0j6KQKrsQlszj1s/svFzfdv6s1imc6NsA+IxpShH+<span class="number">2</span>c9jbMU2NyEKEnM1ipOyPoFjCHTQ1ufBd5vT8M9nwVoHbpuOhSttBM6HHXWmhPFmp ww@localhost</div></pre></td></tr></table></figure>
+
+<p>这里打印出了我们要添加到<a href="https://github.com" target="_blank" rel="external">Github</a>上的ssh key，让我们先把它复制出来保存一下吧。</p>
+<h3 id="修改配置文件">修改配置文件</h3>
+<p>按照下面的格式修改配置文件</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="title">issue_migrator</span> :</div><div class="line">    repository_name : repository.github.io  </div><div class="line">        <span class="comment"># 这个Github项目的issue会被当做文章(必填)</span></div><div class="line">                                             </div><div class="line">    owner_name : someone                     </div><div class="line">        <span class="comment"># 上面那个项目的创建者的用户名 (必填)</span></div><div class="line">                                             </div><div class="line">    label : blog            </div><div class="line">        <span class="comment"># 只有打了这个标签的issue才会被当做文章</span></div><div class="line">        <span class="comment"># 留空这一项的话意为着所有的issue都会被当做文章</span></div><div class="line">        <span class="comment"># 默认空</span></div><div class="line">                                             </div><div class="line">    issue_count_per_page : <span class="number">20</span></div><div class="line">        <span class="comment"># 每次API请求中包含多少issue 默认 20</span></div><div class="line">    </div><div class="line">    clean : <span class="built_in">true</span></div><div class="line">        <span class="comment"># 这项如果为true的话，每次执行issue_migrator都会先删掉之前所有的文章</span></div><div class="line">        <span class="comment"># 如果为false，则只会添加文章不会删除文章</span></div><div class="line">        <span class="comment"># 只有当你项目里所有之前的文章都转移到issue里之后才应该设为true</span></div><div class="line">        <span class="comment"># 默认 false</span></div><div class="line">    </div><div class="line">    including_closed : <span class="built_in">false</span></div><div class="line">        <span class="comment"># 一般我们把issue close了就以为这要把它从博客上删除了</span></div><div class="line">        <span class="comment"># 如果是true，那么close了的issue也不会被认为是删除了的</span></div><div class="line">        <span class="comment"># 默认 false</span></div><div class="line">        </div><div class="line">heroku_auto_publisher :</div><div class="line">    sender_name : songchenwen</div><div class="line">    	<span class="comment"># 当这个Github用户名未这一项的用户</span></div><div class="line">    	<span class="comment"># 对上面的repository产生issue操作时</span></div><div class="line">    	<span class="comment"># 才会触发issue_migrator</span></div><div class="line">    	<span class="comment"># 留空的话就是所有人的操作都会触发</span></div><div class="line">    	<span class="comment"># 默认空</span></div><div class="line">    	</div><div class="line">    commit_user_name : songchenwen</div><div class="line">    	<span class="comment"># 自动发表文章时你希望Github上显示的commit用户名</span></div><div class="line">    	</div><div class="line">    commit_user_email : emptyzone.<span class="number">0</span><span class="variable">@gmail</span>.com</div><div class="line">    	<span class="comment"># 自动发表文章时你希望Github上显示的commit用户email</span></div></pre></td></tr></table></figure>
+
+<p>以上这些步骤完成后，我们就已经准备好要部署到<a href="http://heroku.com" target="_blank" rel="external">Heroku</a>上的项目了。</p>
+<h1 id="创建Heroku_App">创建<a href="http://heroku.com" target="_blank" rel="external">Heroku</a> App</h1>
+<h3 id="注册">注册</h3>
+<p>如果你还没有Heroku的账户的话，就先去<a href="https://id.heroku.com/signup" target="_blank" rel="external">这里</a>注册吧。</p>
+<h3 id="安装heroku-toolbelt">安装heroku-toolbelt</h3>
+<p>Heroku toolbelt是你在本地操作Heroku Apps的客户端。<br>去<a href="https://devcenter.heroku.com/articles/quickstart#step-2-install-the-heroku-toolbelt" target="_blank" rel="external">这里</a>下载安装。</p>
+<p>安装完成后打开终端(命令行)执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ heroku login</div></pre></td></tr></table></figure>
+
+<p>然后按照提示输入Email和密码，设置好ssh key。</p>
+<h3 id="初始化Git">初始化Git</h3>
+<p>如果你当前的项目已经是一个Git版本库了，那么你只需要记得把准备项目时新生成的文件添加的版本控制里就行了。不过需要注意的是./ssh/id_rsa这个文件尽量不要push到公开的版本库上，有了它就有了操作你的<a href="https://github.com" target="_blank" rel="external">Github</a>项目的授权。</p>
+<p>如果你的项目还没有被初始化成Git版本库过，那么你需要执行下面三条命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">"init"</span></div></pre></td></tr></table></figure>
+
+<h3 id="创建App">创建App</h3>
+<p>在项目目录下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ heroku create</div></pre></td></tr></table></figure>
+
+<p>这会在<a href="http://heroku.com" target="_blank" rel="external">Heroku</a>上创建好对应的App。</p>
+<p>再执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push heroku master</div></pre></td></tr></table></figure>
+
+<p>这会把你的项目部署到<a href="http://heroku.com" target="_blank" rel="external">Heroku</a>上。</p>
+<p>执行下面的命令来保证你的项目能得到运行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ heroku ps:scale web=<span class="number">1</span></div></pre></td></tr></table></figure>
+
+<p>让我们来访问一下你的项目吧，执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ heroku open</div></pre></td></tr></table></figure>
+
+<p>命令执行后会在浏览器里打开你的项目，如果页面上显示success则代表你部署成功了，记住这个页面的网址，我们后面会用到它。</p>
+<h1 id="配置Github">配置Github</h1>
+<h3 id="添加ssh_key">添加ssh key</h3>
+<p>在<a href="https://github.com/settings/ssh" target="_blank" rel="external">这里</a>添加上刚才ssh key，注意登录用户必须有提交到Github Pages项目的权限。</p>
+<h3 id="设置Webhooks">设置Webhooks</h3>
+<p>打开你用来存放文章(issue)的<a href="https://github.com" target="_blank" rel="external">Github</a>项目主页，点击右侧的<code>Settings</code>，再点左侧的<code>Webhooks &amp; Services</code>。</p>
+<p>点击<code>Add webhook</code>。</p>
+<p>在<code>Payload URL</code>里填入刚才我们打开heroku app的网址。</p>
+<p><code>Content type</code>选<code>application/json</code>。</p>
+<p><code>Secret</code>留空。</p>
+<p><code>Which events would you like to trigger this webhook?</code>选<code>Let me select individual events.</code>。</p>
+<p>在下面的选项里只选<code>Issues</code>一项就够了。</p>
+<p>选中<code>Active</code>。</p>
+<p>点击<code>Add webhook</code>。</p>
+<hr>
+<p>现在就去issue里写一篇文章试试吧。记得issue的标题会被当做文件名，issue的内容要带有hexo所需的文件头哦。</p>
+<p>像<a href="https://github.com/emptyzone/emptyzone.github.com/issues/14" target="_blank" rel="external">这个</a>一样。</p>
+</div>
+	<div class="ujian-hook"></div>
+	
+		<div class="postInfo">
+			<div class="postTags">
+				
+    <a href="/tech/" rel="category" >Tech</a>
+  
+    |
+    
+    <a href="/tags/heroku/">Heroku</a>, <a href="/tags/hexo/">Hexo</a>
+
+			</div>
+			<div class="clear"></div>
+		</div>
+    
+	<div id="disqus_thread" style="margin-top:30px"></div>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</div>
+
+	</div>
+	<div id="footer" class="clear">
+		<div class="credits">
+			Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Authored by <a href="mailto://emptyzone0@gmail.com">Gary</a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    
+        var disqus_shortname = 'garyblog';
+    
+    
+        var ujian_uid = '97713'
+    
+</script>
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+<script src="/js/base.js" type="text/javascript"></script>
+<script src="/js/sparkles.js" type="text/javascript"></script>
+
+</body>
+</html>
