@@ -19,7 +19,7 @@ after_success:
   - "git config --global user.email emptyzone.0@gmail.com"
   - "git add -A"
   - "git commit -m 'update'"
-  - "git push -q --branch=master"
+  - "git push"
 env:
   global:
     secure: OxKh0hfNm9ZGFneCVNo93shOF27Ba1g3EaUqbyAtLW1GRiVaiU1f0uvf4Y4o3X3o2FTR9YwVvfeeRfcphFxgmQ/i4j6dtjyGeVrq7M0vrg+ujZbk0iLV0LUja+XGDjHoiR73SBYY8cApd0cJBSpZQdbbCxVLpSqZvtnMxGZFhS8=
