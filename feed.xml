@@ -7,14 +7,14 @@
     <link>http://emptyzone.github.io/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[]]></description>
-    <pubDate>Sat, 25 Oct 2014 02:39:23 GMT</pubDate>
+    <pubDate>Sat, 25 Oct 2014 03:52:59 GMT</pubDate>
     <generator>http://zespia.tw/hexo/</generator>
     
     <item>
       <title><![CDATA[iOS8 不越狱翻墙方案]]></title>
       <link>http://emptyzone.github.io/tech/2014/10/13/cross-fire-wall-on-ios8/</link>
       <guid>http://emptyzone.github.io/tech/2014/10/13/cross-fire-wall-on-ios8/</guid>
-      <pubDate>Mon, 13 Oct 2014 13:40:00 GMT</pubDate>
+      <pubDate>Mon, 13 Oct 2014 21:40:00 GMT</pubDate>
       <description>
       <![CDATA[<blockquote>
 <p> iOS8为我们带来了第三方输入法和 App Extentions，越狱的需求越来越少。而且自从在 <a href="http://bither.net" target="_blank" rel="external">Bither</a> 里存了一些比特币之后，我就越来越关注手机系统的安全性。现在真的是能不越狱就尽量不越了。那么不越狱的话怎么满足我自由的访问互联网的需求呢？<br>OS X，PC 或者 Android 翻墙，请移步 <a href="http://github.com/clowwindy/shadowsocks" target="_blank" rel="external">Shadowsocks</a>。</p>
@@ -188,7 +188,7 @@
       <title><![CDATA[利用Github和Heroku远程发表Hexo文章]]></title>
       <link>http://emptyzone.github.io/tech/2014/08/11/hexo-auto-publisher-on-heroku/</link>
       <guid>http://emptyzone.github.io/tech/2014/08/11/hexo-auto-publisher-on-heroku/</guid>
-      <pubDate>Mon, 11 Aug 2014 02:02:00 GMT</pubDate>
+      <pubDate>Mon, 11 Aug 2014 10:02:00 GMT</pubDate>
       <description>
       <![CDATA[<p>使用<a href="http://hexo.io" target="_blank" rel="external">Hexo</a>这种静态博客程序搭建博客时，始终会遇到一个问题，要写博客就必须有一台环境配置好的电脑才行。想用手机和平板发文章，就会遇到各种问题。</p>
 <p>看到了<a href="http://kywk.github.io/" target="_blank" rel="external">Yu-Zhi Chen</a>的<a href="http://kywk.github.io/hexo-migrator-dropbox/" target="_blank" rel="external">hexo-migrator-dropbox</a>，但苦于地域限制，很难发挥它的作用。</p>
@@ -285,7 +285,7 @@
       <title><![CDATA[超越Instagram之路]]></title>
       <link>http://emptyzone.github.io/tech/2013/11/24/way-beyond-instagram-preview-and-outline/</link>
       <guid>http://emptyzone.github.io/tech/2013/11/24/way-beyond-instagram-preview-and-outline/</guid>
-      <pubDate>Sat, 23 Nov 2013 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 24 Nov 2013 00:00:00 GMT</pubDate>
       <description>
       <![CDATA[<p>在过去一年多的时间里，我和团队受Instagram的激励一起做了一个图片分享社区。所以同时我也对iOS和Android上的相机开发做了很多研究。我们认为我们产品里的相机在很多方面达到了与Instagram类似的标准，甚至有些方面要更优于它。</p>
 ]]>
@@ -320,7 +320,7 @@
       <title><![CDATA[田亮肯定不是好爸爸]]></title>
       <link>http://emptyzone.github.io/life/2013/11/18/tianliang-bad-dad/</link>
       <guid>http://emptyzone.github.io/life/2013/11/18/tianliang-bad-dad/</guid>
-      <pubDate>Sun, 17 Nov 2013 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 18 Nov 2013 00:00:00 GMT</pubDate>
       <description>
       <![CDATA[<p>周五陪女朋友又看了一集《爸爸去哪》。看到田亮鬼鬼祟祟的问别人：“哎，你平时打孩子吗？其实中国式的教育还是有必要的。”我就想起第一集里刚开始这家伙就表达了对于在镜头前不能打孩子的深深遗憾。没想到他之后还在一直叨逼这事。</p>
 <p>人在做了亏心事的时候就总会找各种理由把它合]]>
@@ -335,7 +335,7 @@
       <title><![CDATA[Android相机启动加速]]></title>
       <link>http://emptyzone.github.io/tech/2013/11/17/android-launch-camera-speed-up/</link>
       <guid>http://emptyzone.github.io/tech/2013/11/17/android-launch-camera-speed-up/</guid>
-      <pubDate>Sat, 16 Nov 2013 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 17 Nov 2013 00:00:00 GMT</pubDate>
       <description>
       <![CDATA[<p>在Android上实现一个简单能用的相机其实挺容易。谷歌随便搜一搜就有很多能用的Sample。当然就像谷歌能搜到的其他代码一样，这些Sample虽然能用但离好用还很远。</p>
 <p>这篇文章就只说说从用户点击启动按钮到用户能看到实时预览的这一小段时间内，我们所做的优化。</p>
@@ -381,7 +381,7 @@
       <title><![CDATA[Sparkles Background]]></title>
       <link>http://emptyzone.github.io/tech/2012/09/05/sparkles-background-javascript/</link>
       <guid>http://emptyzone.github.io/tech/2012/09/05/sparkles-background-javascript/</guid>
-      <pubDate>Tue, 04 Sep 2012 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 05 Sep 2012 00:00:00 GMT</pubDate>
       <description>
       <![CDATA[<p><img src="/images/sparkles-background-javascript/1.jpg" alt=""></p>
 ]]>
@@ -402,7 +402,7 @@
       <title><![CDATA[金牛座]]></title>
       <link>http://emptyzone.github.io/life/2012/08/30/little-taurus/</link>
       <guid>http://emptyzone.github.io/life/2012/08/30/little-taurus/</guid>
-      <pubDate>Wed, 29 Aug 2012 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 30 Aug 2012 00:00:00 GMT</pubDate>
       <description>
       <![CDATA[<p>金牛座的女生都很靠谱，我在夸谁，如果你能看到请一定要对号入座。</p>
 ]]>
@@ -416,7 +416,7 @@
       <title><![CDATA[悲剧才隽永]]></title>
       <link>http://emptyzone.github.io/read/2011/10/12/tragedy-lasts/</link>
       <guid>http://emptyzone.github.io/read/2011/10/12/tragedy-lasts/</guid>
-      <pubDate>Tue, 11 Oct 2011 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 12 Oct 2011 00:00:00 GMT</pubDate>
       <description>
       <![CDATA[<p>『我不是故意的，请不要再哭了。我这支铅笔要送给你，我只削过一次哦。我真的不是故意害你跌倒的，对不起啦。』</p>
 <p>「老师早就说过不许在走廊上楼梯口跑，你们不守规矩害我帮老师拿的作业簿掉到一楼，上面有泥土，我对不起爱护作业簿的同学，铅笔还给你，你应该跟全班说对不起。」</p>
@@ -459,7 +459,7 @@
       <title><![CDATA[极简主义设计与独立博客]]></title>
       <link>http://emptyzone.github.io/tech/2011/02/19/minimalism-and-blog/</link>
       <guid>http://emptyzone.github.io/tech/2011/02/19/minimalism-and-blog/</guid>
-      <pubDate>Fri, 18 Feb 2011 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 19 Feb 2011 00:00:00 GMT</pubDate>
       <description>
       <![CDATA[<p>极简主义是一种生活态度，倡导简约整洁优雅的感官体验。在设计上倾向于以极少的元素辅以大面积留白，从而使内容重点得以强调突出，优雅地传达出设计师的感情。</p>
 <p>Gary Blog的主题便是Gary对极简主义设计的践行，Gary倾心于这种干净而优雅的体验，作为个人博客，Gary Blog实化了Gary理想中面对生活的态度。下面Gary简单阐述一下自己对极简主义设计与个人博客之间联系的理解。</p>
@@ -495,7 +495,7 @@
       <title><![CDATA[那是连风都不曾抵达的地方 那是连太阳都无法温暖的角落]]></title>
       <link>http://emptyzone.github.io/read/2011/01/27/beyond-wind-and-light/</link>
       <guid>http://emptyzone.github.io/read/2011/01/27/beyond-wind-and-light/</guid>
-      <pubDate>Wed, 26 Jan 2011 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 27 Jan 2011 00:00:00 GMT</pubDate>
       <description>
       <![CDATA[<p>搬来一篇墙外的文章。</p>
 <h1 id="（一）">（一）</h1>
@@ -627,7 +627,7 @@
       <title><![CDATA[演不完的惨绿青春]]></title>
       <link>http://emptyzone.github.io/life/2011/01/26/angry-teens/</link>
       <guid>http://emptyzone.github.io/life/2011/01/26/angry-teens/</guid>
-      <pubDate>Tue, 25 Jan 2011 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 26 Jan 2011 00:00:00 GMT</pubDate>
       <description>
       <![CDATA[<p><img src="/images/angry-teens/title.jpg" alt=""></p>
 <p>青春这个字眼总是与惨绿这个形容相伴，就像忧伤和愤怒总是伴随着每一个即将独自面对这个世界的年轻的心。</p>
