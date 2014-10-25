@@ -5,18 +5,21 @@ language: node_js
 node_js:
   - "0.10"
 script:
-  - "npm install; hexo g"
+  - "npm install"
+  - "hexo g"
 after_success:
-  - "git clone https://$GH_TOKEN@github.com/emptyzone/emptyzone.github.com.git git_deploy"
-  - "rm -r git_deploy/*"
-  - "cp -r public/* git_deploy"
+  - "mkdir -p git_deploy"
   - "cd git_deploy"
+  - "rm -rf ./*"
+  - "git clone --depth=50 --branch=master https://$GH_TOKEN@github.com/emptyzone/emptyzone.github.com.git"
+  - "rm -rf ./*"
+  - "cp -r ../public/* ./"
   - "git config --global push.default simple"
-  - "git config --global user.name 'qianlifeng'"
-  - "git config --global user.email qianlf2008@163.com"
+  - "git config --global user.name 'songchenwen'"
+  - "git config --global user.email emptyzone.0@gmail.com"
   - "git add -A"
   - "git commit -m 'update'"
-  - "git push -q"
+  - "git push -q --branch=master"
 env:
   global:
     secure: OxKh0hfNm9ZGFneCVNo93shOF27Ba1g3EaUqbyAtLW1GRiVaiU1f0uvf4Y4o3X3o2FTR9YwVvfeeRfcphFxgmQ/i4j6dtjyGeVrq7M0vrg+ujZbk0iLV0LUja+XGDjHoiR73SBYY8cApd0cJBSpZQdbbCxVLpSqZvtnMxGZFhS8=
