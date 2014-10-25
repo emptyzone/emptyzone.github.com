@@ -18,7 +18,7 @@ tags : [Heroku, Hexo]
 
 #准备项目
 
-###安装[hexo-heroku-auto-publisher]
+##安装[hexo-heroku-auto-publisher]
 
 在Hexo项目目录下执行
 
@@ -28,7 +28,7 @@ $ hexo install hexo-heroku-auto-publisher --save
 
 这个插件不需要配置，它的作用就是在你的项目里添加一些上传到[Heroku]时所需要的文件。
 
-###转换项目
+##转换项目
 
 安装好[hexo-heroku-auto-publisher]后，在[Hexo]项目目录下执行
 
@@ -45,7 +45,7 @@ $ hexo mp
 * 为你安装了[hexo-migrator-issue]插件
 * 为你的项目添加了`async`，`body-parser`，`express`，`hexo`这四个依赖。
 
-###保存ssh key
+##保存ssh key
 
 在刚才转换项目的过程中，有一段输出是值得我们注意的。类似下面这样。
 
@@ -57,7 +57,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAOJXk9uTTwEGw89pET3X7C5ZQSZ76ENNYuamoO+Ah
 
 这里打印出了我们要添加到[Github]上的ssh key，让我们先把它复制出来保存一下吧。
 
-###修改配置文件
+##修改配置文件
 
 按照下面的格式修改配置文件
 
@@ -107,11 +107,11 @@ heroku_auto_publisher :
 
 #创建[Heroku] App
 
-###注册
+##注册
 
 如果你还没有Heroku的账户的话，就先去[这里](https://id.heroku.com/signup)注册吧。
 
-###安装heroku-toolbelt
+##安装heroku-toolbelt
 
 Heroku toolbelt是你在本地操作Heroku Apps的客户端。
 去[这里](https://devcenter.heroku.com/articles/quickstart#step-2-install-the-heroku-toolbelt)下载安装。
@@ -123,7 +123,7 @@ $ heroku login
 ```
 然后按照提示输入Email和密码，设置好ssh key。
 
-###初始化Git
+##初始化Git
 
 如果你当前的项目已经是一个Git版本库了，那么你只需要记得把准备项目时新生成的文件添加的版本控制里就行了。不过需要注意的是./ssh/id_rsa这个文件尽量不要push到公开的版本库上，有了它就有了操作你的[Github]项目的授权。
 
@@ -135,7 +135,7 @@ $ git add .
 $ git commit -m "init"
 ```
 
-###创建App
+##创建App
 
 在项目目录下执行
 
@@ -170,11 +170,11 @@ $ heroku open
 #配置Github
 
 
-###添加ssh key
+##添加ssh key
 
 在[这里](https://github.com/settings/ssh)添加上刚才ssh key，注意登录用户必须有提交到Github Pages项目的权限。
 
-###设置Webhooks
+##设置Webhooks
 
 打开你用来存放文章(issue)的[Github]项目主页，点击右侧的`Settings`，再点左侧的`Webhooks & Services`。
 

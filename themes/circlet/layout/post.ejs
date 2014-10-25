@@ -2,7 +2,7 @@
 <div class="post">
 	<p class="category"><%= page.categories.first().name %></p>
 	<h2><a href="<%- url_for(page.path) %>" title="<%= page.title %>"><%= page.title %></a></h2>
-	<div class="date"><%- page.date.fromNow() %></div>
+	<div class="date"><%- page.date.format('L') %></div>
 	<div class="postContent"><%- page.content %></div>
 	<div class="ujian-hook"></div>
 	<% if (page.categories.length > 0 || page.tags.length > 0){ %>

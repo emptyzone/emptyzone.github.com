@@ -22,11 +22,9 @@ tags : [GFW, VPN, DNS, iOS, VPS]
 
 # IPsec VPN 
 
----
-
 我是在 [Twitter] 上看到 [Justin] 说 Anyconnect 在 iOS8 上变的特别慢之后，才开始考虑停掉 [ocserv] 换用 IPsec VPN 的，IPsec 的配置方法参考了 [Justin] 的[文章](https://medium.com/@cattyhouse/ios-ondemand-ipsec-vpn-setup-ebfb82b6f7a1)。由于 IKEv2 在 iOS8 上有 [Bug](http://www.v2ex.com/t/138171)，所以这里还是用的 IKEv1 协议。不过如果 Apple 在哪个版本修复了 IKEv2 的话，现在这个配置方式也是很容易迁移到 IKEv2 的。
 
-# 编译 Strongswan
+## 编译 Strongswan
 
 apt-get 里的 Strongswan 版本低，所以这里需要自行编译最新版的 Strongswan。
 
@@ -77,7 +75,7 @@ OpenVZ 要加上 `--enable-kernel-libipsec` 参数，完整命令如下。
 make && sudo make install
 ```
 
-# 生成证书
+## 生成证书
 
 这里是使用的自签名证书，需要你把 CA 证书用邮件发到 iOS 设备上安装才行。如果要用 ssl 证书，可以参考 [wzxjohn] 的[文章](http://maoxian.de/2014/10/setup-ikev2-on-demand-vpn-on-ios-8-and-ikev2-ikev1-cisco-ipsec-vpn-with-strongswan/1220.html)。
 
@@ -114,7 +112,7 @@ sudo cp certs/vpnHostCert.pem /etc/ipsec.d/certs/vpnHostCert.pem
 sudo cp private/vpnHostKey.pem /etc/ipsec.d/private/vpnHostKey.pem
 ```
 
-# 配置 Strongswan
+## 配置 Strongswan
 
 ### 编辑 /etc/ipsec.conf
 
@@ -163,7 +161,7 @@ sudo vi /etc/ipsec.secrets
 gary : EAP "strongpassword" 
 ```
 
-# 配置防火墙 iptables
+## 配置防火墙 iptables
 
 > 参考我的配置文件，重要的是开启 NAT 转发 开放 `4500` `500` 端口和 `esp` 协议
 
@@ -228,7 +226,7 @@ iptables -A POSTROUTING -t nat -s 10.0.0.0/8 -j SNAT --to-source 20.16.3.18
 
 现在可以重启一下服务器，然后执行 `sudo iptables -L`，看看防火墙有没有添加对。
 
-# 区分流量自动路由
+## 区分流量自动路由
 
 是的，你没看错，IPsec IKEv1 也是支持自动路由的。IPsec 支持 [SplitTunneling](https://wiki.strongswan.org/projects/strongswan/wiki/ForwardingAndSplitTunneling)。iOS 上的 IPsec 客户端用的是 Racoon，这货支持 Unity Plugin。也就是说我们可以用 IP 列表来区分国内外流量了。
 
@@ -264,11 +262,11 @@ charon {
 
 现在可以执行 `sudo ipsec start --nofork`，试一下了。`--nofork` 参数会让 strongswan 在前台运行，调试时加上就可以了，平时就让它在后台运行吧。
 
-# 开机自启
+## 开机自启
 
 编辑 `/etc/rc.local` 在 `exit 0` 前加上 `ipsec start`。
 
-# iOS 端自动配置文件
+## iOS 端自动配置文件
 
 这里完全参考 [Justin] 的[文章](https://medium.com/@cattyhouse/ios-ondemand-ipsec-vpn-setup-ebfb82b6f7a1)就可以了，他那有截图，我就只说一下步骤吧。
 
@@ -311,17 +309,15 @@ VPN里连接类型选 `IPsec(Cisco)`，机器鉴定选证书，在下面选中�
 
 # DNS
 
----
-
 使用刚才配置的 IPsec VPN 翻墙的话，就总会使用谷歌的 DNS 服务器做域名查询。这样很多明明国内有 CDN 的域名，却会解析到国外的 IP 上，造成访问缓慢。所以我要利用 `pdnsd` 来创建一个带缓存的域名解析服务。这里主要参考了[这篇文章](https://jackyyf.com/work/480)。
 
-# 安装 pdsnd
+## 安装 pdsnd
 
 ``` bash
 sudo apt-get install pdnsd
 ```
 
-# 配置 pdnsd
+## 配置 pdnsd
 
 编辑 /etc/pdnsd.conf
 
@@ -400,7 +396,7 @@ rr {
 
 执行 `sudo service pdnsd start` 来启动 pdnsd。
 
-# 为使用 pdnsd 配置 Strongswan
+## 为使用 pdnsd 配置 Strongswan
 
 我们刚才配置的 iptables 中并没有开启 DNS 服务需要的53端口。这个端口如果完全开放的话，VPS 提供商可能会给我们发安全警告。所以我们要利用 Strongswan 的 `updown script` 来完成对 iptables 的设置。
 
