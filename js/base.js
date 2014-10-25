@@ -16,6 +16,7 @@ jQuery(document).ready(function($){
 
 function afterLoaded(){
 	bindSlimBox();
+    calculateTime();
     if(disqus_shortname){
         window.DISQUSWIDGETS = undefined;
         if(disqus_count_command){
@@ -135,6 +136,19 @@ function caculateCategory(category){
 			$(item).removeClass('current-menu-item');
 		}
 	});
+}
+
+function calculateTime(){
+    var $dates = $('.post .date');
+    if($dates){
+        $dates.each(function(i, d){
+            var $d = $(d);
+            var m = moment(new Date($d.html()));
+            if(m){
+                $d.html(m.fromNow());
+            }
+        });
+    }
 }
 
 function scrollToTop(){
