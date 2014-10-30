@@ -7,7 +7,7 @@
     <link>http://emptyzone.github.io/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[]]></description>
-    <pubDate>Sat, 25 Oct 2014 07:27:39 GMT</pubDate>
+    <pubDate>Thu, 30 Oct 2014 01:22:46 GMT</pubDate>
     <generator>http://zespia.tw/hexo/</generator>
     
     <item>
@@ -204,7 +204,7 @@
 <h1 id="准备项目">准备项目</h1>
 <h2 id="安装hexo-heroku-auto-publisher">安装<a href="https://github.com/songchenwen/hexo-heroku-auto-publisher" target="_blank" rel="external">hexo-heroku-auto-publisher</a></h2>
 <p>在Hexo项目目录下执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo install hexo-heroku-auto-publisher --save</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-heroku-auto-publisher --save</div></pre></td></tr></table></figure>
 
 <p>这个插件不需要配置，它的作用就是在你的项目里添加一些上传到<a href="http://heroku.com" target="_blank" rel="external">Heroku</a>时所需要的文件。</p>
 <h2 id="转换项目">转换项目</h2>
