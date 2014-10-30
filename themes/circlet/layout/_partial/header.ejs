@@ -5,14 +5,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta charset="UTF-8">
 <title>
-    <%= config.title %>
     <% if(is_post()){ %>
-        | <%= page.title %>
+        <%= page.title %> | 
     <% } else if(page.category){ %>
-        | <%= page.category %>
+        <%= page.category %> | 
     <% } else if(is_tag()){ %>
-        | <%= page.tag %>
+        <%= page.tag %> | 
     <% } %>
+    <%= config.title %>
 </title>
 <% if (config.description){ %>
     <meta name="description" content="<%= config.description %>" />
