@@ -1,9 +1,12 @@
 ---
 title: 利用Github和Heroku远程发表Hexo文章
-date : 2014-8-11 10:02
-categories : [Tech]
-tags : [Heroku, Hexo]
-
+date: "2014-8-11 10:02"
+categories: 
+  - Tech
+tags: 
+  - Heroku
+  - Hexo
+published: true
 ---
 
 使用[Hexo]这种静态博客程序搭建博客时，始终会遇到一个问题，要写博客就必须有一台环境配置好的电脑才行。想用手机和平板发文章，就会遇到各种问题。
@@ -23,7 +26,7 @@ tags : [Heroku, Hexo]
 在Hexo项目目录下执行
 
 ``` bash
-$ hexo install hexo-heroku-auto-publisher --save
+$ npm install hexo-heroku-auto-publisher --save
 ```
 
 这个插件不需要配置，它的作用就是在你的项目里添加一些上传到[Heroku]时所需要的文件。
