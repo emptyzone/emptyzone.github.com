@@ -1,10 +1,17 @@
 ---
-title: iOS8 不越狱翻墙方案 
-date : 2014-10-13 21:40
-categories : [Tech]
-tags : [GFW, VPN, DNS, iOS, VPS]
-
+title: iOS8 不越狱翻墙方案
+date: "2014-10-13 21:40"
+categories: 
+  - Tech
+tags: 
+  - GFW
+  - VPN
+  - DNS
+  - iOS
+  - VPS
+published: true
 ---
+
 >  iOS8为我们带来了第三方输入法和 App Extentions，越狱的需求越来越少。而且自从在 [Bither] 里存了一些比特币之后，我就越来越关注手机系统的安全性。现在真的是能不越狱就尽量不越了。那么不越狱的话怎么满足我自由的访问互联网的需求呢？
 > OS X，PC 或者 Android 翻墙，请移步 [Shadowsocks]。
 
@@ -170,6 +177,8 @@ gary : EAP "strongpassword"
 注意别把自己的 ssh 端口关闭了
 
 ``` iptables
+*filter
+
 #  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
 -A INPUT -i lo -j ACCEPT
 -A INPUT -d 127.0.0.0/8 -j LOG --log-prefix "looback denied: " --log-level 7
@@ -202,6 +211,8 @@ gary : EAP "strongpassword"
 -A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
 
 -A INPUT -j DROP
+
+COMMIT
 ```
 
 在 `/etc/sysctl.conf` 中开启 `net.ipv4.ip_forward=1`
